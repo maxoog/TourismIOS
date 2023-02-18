@@ -9,7 +9,7 @@ struct TourismApp: App {
     var body: some Scene {
         WindowGroup {
             Group {
-                if isFirstLaunch {
+                if true {
                     ZStack {
                         Group {
                             if navigationController.activeTab == .search {

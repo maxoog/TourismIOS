@@ -10,13 +10,15 @@ class ProfileViewModel: ObservableObject {
     @Published var showAuthView: Bool = false
     @Published var userProfile: Profile?
     
-    @Published var userAchivements: [Achivement] = [
-        Achivement(current: 10, avaliable: 10),
-        Achivement(current: 2, avaliable: 10),
-        Achivement(current: 4, avaliable: 10),
-        Achivement(current: 6, avaliable: 10),
-        Achivement(current: 8, avaliable: 10),
-    ]
+    @Published var userAchivements: [Achivement] = Array(repeating:
+        Achivement(
+            title: "Фантастические места",
+            description: "Посетите главные природные достопримечательности России",
+            icon: "achivementIcon",
+            current: 4,
+            avaliable: 10,
+            reward: 240
+        ), count: 3)
     
     init(authService: AuthService, profileService: ProfileService) {
         self.authService = authService
@@ -50,9 +52,4 @@ class ProfileViewModel: ObservableObject {
         authService.logout()
         userProfile = nil
     }
-}
-
-struct Achivement: Hashable {
-    let current: Int
-    let avaliable: Int
 }

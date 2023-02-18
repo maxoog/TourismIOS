@@ -8,6 +8,8 @@ struct ProfileView: View {
     @State var imageSize = 150.0
     @State var secondaryOpacity = 1.0
     
+    @State var isFullTitle: Bool = true
+    
     let testProfile: Profile = .init(
         photo: "https://sun9-24.userapi.com/impg/71B6IoIm3guSZDbN564XtCb02_wbXtHqyUFe5g/aFN48TBNwps.jpg?size=640x640&quality=95&sign=271d2c2aec97187bc97dcd8ec71a90fb&type=album",
         firstName: "Максим",
@@ -29,6 +31,16 @@ struct ProfileView: View {
             ScrollViewSharingOffset(offsetChanged: { offset in
                 let percent = (offset.y + 60) / 60
                 secondaryOpacity = percent
+                
+                if percent > 0.4 {
+                    withAnimation(.spring()) {
+                        isFullTitle = true
+                    }
+                } else {
+                    withAnimation(.spring()) {
+                        isFullTitle = false
+                    }
+                }
             }) {
                 Spacer(minLength: 300)
                 
@@ -89,39 +101,13 @@ struct ProfileView: View {
                                 .foregroundColor(Design.Colors.lightGray)
                         }
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(viewModel.userAchivements, id: \.self) { item in
-                                    VStack {
-                                        Image(systemName: "person")
-                                            .padding(20)
-                                        
-                                        Group {
-                                            if item.current == item.avaliable {
-                                                Text("Получено!")
-                                                    .font(Design.Fonts.bold11)
-                                                    .foregroundColor(Design.Colors.lightGray)
-                                            } else {
-                                                GeometryReader { gr in
-                                                    ZStack(alignment: .leading) {
-                                                        RoundedRectangle(cornerRadius: 5)
-                                                            .fill(.white)
-                                                            .frame(maxWidth: gr.size.width)
-                                                            .frame(height: 4)
-                                                        
-                                                        RoundedRectangle(cornerRadius: 5)
-                                                            .fill(Design.Colors.mainGreen)
-                                                            .frame(height: 4)
-                                                            .frame(maxWidth: gr.size.width * CGFloat(item.current) / CGFloat(item.avaliable))
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .frame(width: 100)
-                                    .padding()
-                                    .background(Design.Colors.lightViolet.opacity(0.2), in: RoundedRectangle(cornerRadius: 20))
-                                }
+                        VStack {
+                            ForEach(viewModel.userAchivements, id: \.self) { item in
+                                AchivementCard(cardInfo: item)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.trailing)
+                                    .background(Design.Colors.lightViolet.opacity(0.1), in: RoundedRectangle(cornerRadius: 20))
+                                    .padding(.bottom)
                             }
                         }
                     }
@@ -143,12 +129,14 @@ struct ProfileView: View {
                     Button("Выйти") {
                         viewModel.logoutRequested()
                     }
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.red)
                     .frame(width: 180, height: 56)
-                    .background(.blue)
-                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.red, lineWidth: 2)
+                    )
                     
-                    Spacer(minLength: 300)
+                    Spacer(minLength: 100)
                 }
                 .sheet(isPresented: $viewModel.showAuthView) {
                     screenFactory.vkAuthView(onAuthorize: {})
@@ -158,11 +146,14 @@ struct ProfileView: View {
             // MARK: - Profile Info
             VStack {
                 ZStack(alignment: .top) {
-                    ProfileHeaderView(profile: testProfile, imageSize: imageSize)
-                    .opacity(secondaryOpacity)
-                    
-                    ShortProfileHeaderView(profile: testProfile, imageSize: imageSize * 0.4)
-                    .opacity(1 - secondaryOpacity)
+                    if isFullTitle {
+                        ProfileHeaderView(profile: testProfile, imageSize: imageSize)
+                            .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)))
+                    } else {
+                        
+                        ShortProfileHeaderView(profile: testProfile, imageSize: imageSize * 0.4)
+                            .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)))
+                    }
                 }
                 
                 Spacer()
