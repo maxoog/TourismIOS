@@ -53,20 +53,19 @@ struct OnboardingView: View {
                 .ignoresSafeArea()
             VStack(alignment: .leading, spacing: 24) {
                 if state == .travel {
-                    image(name: "travelImage")
+                    image(name: "travel")
                     header(text: "Путешествуй по России")
                 } else if state == .meet {
-                    image(name: "meetImage")
-                    header(text: "Знакомься с людьми")
+                    image(name: "open")
+                    header(text: "Открывай для себя новые места")
                 } else if state == .action {
-                    image(name: "actionImage")
-                    header(text: "Действуй")
+                    image(name: "action")
+                    header(text: "Действуй!")
                 }
             }
             .padding(.top, 8)
         }
     }
-
     
     private func header(text: String) -> some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -75,7 +74,6 @@ struct OnboardingView: View {
                     .foregroundColor(.white)
                     .font(Design.Fonts.bold24)
                     .multilineTextAlignment(.leading)
-                    .lineLimit(1)
                 Spacer()
             }
             
@@ -88,8 +86,6 @@ struct OnboardingView: View {
     private func image(name: String) -> some View {
         VStack {
             Image(name)
-                .scaleEffect(1.05)
-            Spacer()
         }
     }
     
@@ -118,16 +114,15 @@ struct OnboardingView: View {
         } label: {
             ZStack {
                 Circle()
-                    .frame(width: 44, height: 44)
-                    .background(.clear)
-                    .foregroundColor(buttonColor())
-                Image(systemName: "chevron.right")
+                    .frame(width: 54, height: 54)
+                    .backgroundStyle(Design.Gradients.buttonGradient)
+                Image(systemName: "arrow.forward")
                     .foregroundColor(.white)
+                    .frame(width: 30, height: 30)
             }
-            .cornerRadius(22)
+            .cornerRadius(27)
         }
         .animation(.easeInOut, value: getIndex())
-        
     }
     
     func buttonColor() -> Color {
@@ -156,7 +151,6 @@ struct OnboardingView: View {
                 .offset(x: getIndicatorsOffset())
             ,alignment: .leading
         )
-        .offset(x: 10, y: 20)
     }
     
     func getIndicatorsOffset() -> CGFloat {
