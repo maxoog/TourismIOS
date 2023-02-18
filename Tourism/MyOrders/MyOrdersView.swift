@@ -46,7 +46,7 @@ struct MyOrdersView: View {
                 screenFactory.eventFullScreen(event: event, dismiss: { viewModel.showedEvent = nil })
             }
             .fullScreenCover(item: $viewModel.showedLiving, onDismiss: viewModel.dismissAllCards) { living in
-                FullScreenLivingView(living: living)
+                screenFactory.livingFullScreen(living: living, dismiss: { viewModel.showedLiving = nil })
             }
         }
     }

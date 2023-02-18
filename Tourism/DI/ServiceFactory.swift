@@ -35,6 +35,10 @@ final class ScreenFactory {
     func eventFullScreen(event: Event, dismiss: @escaping () -> Void) -> FullScreenEventsView {
         return FullScreenEventsView(event: event, service: appFactory.searchService, dismiss: dismiss)
     }
+    
+    func livingFullScreen(living: Living, dismiss: @escaping () -> Void) -> FullScreenLivingView {
+        return FullScreenLivingView(living: living, service: appFactory.searchService, dismiss: dismiss)
+    }
 
 }
 
