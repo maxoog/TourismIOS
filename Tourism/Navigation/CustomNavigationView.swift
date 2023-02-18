@@ -20,6 +20,7 @@ struct CustomNavigationView: View {
                 .frame(maxWidth: .infinity)
                 .background(.white, in: RoundedRectangle(cornerRadius: 20))
                 .edgesIgnoringSafeArea(.top)
+                .defaultShadow()
                 .offset(y: navigationController.hidden ? -200 : 0)
             }
             

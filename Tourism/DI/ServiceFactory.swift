@@ -33,6 +33,10 @@ final class ScreenFactory {
     func vkAuthView(onAuthorize: @escaping () -> Void) -> VKAuthView {
         return VKAuthView(viewModel: appFactory.vkAuthViewModel(onAuthorize: onAuthorize))
     }
+    
+    func eventFullScreen(event: Event) -> FullScreenEventsView {
+        return FullScreenEventsView(event: event, service: appFactory.searchService)
+    }
 
 }
 
@@ -49,6 +53,10 @@ fileprivate final class AppFactory {
     
     fileprivate lazy var booksService: BookService = {
         return BookService(client: client)
+    }()
+    
+    fileprivate lazy var searchService: SearchService = {
+        return SearchService(client: client)
     }()
     
     init() {

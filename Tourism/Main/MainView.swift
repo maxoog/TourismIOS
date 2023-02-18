@@ -13,13 +13,6 @@ struct MainView: View {
                 
                 // MARK: - Toggle search type
                 VStack(alignment: .leading) {
-                    //                        Text("Поиск")
-                    //                            .foregroundColor(Design.Colors.mainText)
-                    //                            .font(.title2)
-                    //                            .fontWeight(.semibold)
-                    //                        Text("Выберите, что хотите найти")
-                    //                            .opacity(0.6)
-                    
                     Picker("", selection: $viewModel.activeSection) {
                         ForEach(ListType.allCases, id: \.self) { item in
                             Text(item.rawValue)
@@ -56,20 +49,30 @@ struct MainView: View {
                 // MARK: - Avaliable cards
                 VStack(alignment: .leading) {
                     if viewModel.activeSection == .eventSection {
-                        //                            Text("Найдено вариантов: \(viewModel.events.count)")
-                        //                                .font(.title2)
-                        //                                .fontWeight(.bold)
-                        //                                .padding(.leading, 20)
-                        //                                .padding(.bottom)
+                        HStack {
+                            Text("Найдено вариантов:")
+                                .foregroundColor(Design.Colors.darkBlue)
+                            
+                            Text("\(viewModel.events.count)")
+                                .foregroundColor(Design.Colors.mainGreen)
+                        }
+                        .font(Design.Fonts.bold)
+                        .padding(.leading, 20)
+                        .padding(.bottom)
                         
                         EventsListView(events: viewModel.events, onTap: viewModel.eventTap)
                             .padding(.horizontal, 20)
                     } else {
-                        //                            Text("Найдено вариантов: \(viewModel.livings.count)")
-                        //                                .font(.title2)
-                        //                                .fontWeight(.bold)
-                        //                                .padding(.leading, 20)
-                        //                                .padding(.bottom)
+                        HStack {
+                            Text("Найдено вариантов:")
+                                .foregroundColor(Design.Colors.darkBlue)
+                            
+                            Text("\(viewModel.livings.count)")
+                                .foregroundColor(Design.Colors.mainGreen)
+                        }
+                        .font(Design.Fonts.bold)
+                        .padding(.leading, 20)
+                        .padding(.bottom)
                         
                         LivingsListView(livings: viewModel.livings, onTap: viewModel.livingTap(living:))
                             .padding(.horizontal, 20)
@@ -80,7 +83,7 @@ struct MainView: View {
             Spacer(minLength: 100)
         }
         .sheet(item: $viewModel.showedEvent, onDismiss: viewModel.dismissAllCards) { event in
-            FullScreenEventsView(event: event)
+            screenFactory.eventFullScreen(event: event)
         }
         .sheet(item: $viewModel.showedLiving, onDismiss: viewModel.dismissAllCards) { living in
             FullScreenLivingView(living: living)

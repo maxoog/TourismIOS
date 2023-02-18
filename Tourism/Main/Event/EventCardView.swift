@@ -18,6 +18,13 @@ struct EventCardView: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
+                        if Int.random(in: 0...1) == 1 {
+                            Text("Волонтерство")
+                                .font(Design.Fonts.medium11)
+                                .padding(5)
+                                .background(.green, in: RoundedRectangle(cornerRadius: 10))
+                        }
+                        
                         Spacer()
                         
                         LikeView(isLiked: false)
@@ -27,8 +34,8 @@ struct EventCardView: View {
                     Spacer()
                     
                     Text(cardInfo.name)
-                        .fontWeight(.semibold)
-                        .padding(10)
+                        .font(Design.Fonts.bold16)
+                        .padding()
                 }
                 .foregroundColor(.white)
             }
@@ -38,21 +45,20 @@ struct EventCardView: View {
                     Image("geoIcon")
                     
                     Text(cardInfo.region)
-                        .font(.caption)
+                        .font(Design.Fonts.medium14)
                 }
                 
                 Spacer()
                 
                 Text(cardInfo.timeRange)
-                    .font(.caption)
+                    .font(Design.Fonts.medium14)
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 10)
+            .padding(.horizontal)
             
             Text("Стоимость: \(cardInfo.price)₽")
-                .font(.caption)
-                .opacity(0.5)
-                .padding(.horizontal, 10)
+                .font(Design.Fonts.medium14)
+                .foregroundColor(Design.Colors.lightGray)
+                .padding(.horizontal)
                 .padding(.bottom)
         }
         .background(in: RoundedRectangle(cornerRadius: 20))

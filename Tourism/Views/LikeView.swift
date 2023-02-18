@@ -8,10 +8,11 @@ struct LikeView: View {
             isLiked.toggle()
         } label: {
             Image(systemName: isLiked ? "heart.fill" : "heart")
+                .renderingMode(.template)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 30)
-                .foregroundColor(isLiked ? Design.Colors.red : .gray)
+                .foregroundColor(.white)
         }
 
     }

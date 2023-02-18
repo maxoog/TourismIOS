@@ -8,7 +8,7 @@ class Client {
         return Session(interceptor: RequestInterceptor(token: authToken))
     }()
     
-    let address = "https://159b-91-142-83-218.eu.ngrok.io"
+    let address = "https://aedd-176-59-64-22.eu.ngrok.io"
     
     private static let tokenKey = "VK_AUTH_TOKEN"
     
