@@ -15,9 +15,7 @@ struct TourismApp: App {
                     if navigationController.activeTab == .search {
                         screenFactory.mainScreen()
                     } else if navigationController.activeTab == .booking {
-                        NavigationStack {
-                            screenFactory.myOrdersScreen()
-                        }
+                        screenFactory.myOrdersScreen()
                     } else {
                         screenFactory.profileScreen()
                     }

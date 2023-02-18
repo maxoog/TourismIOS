@@ -1,17 +1,11 @@
 import Foundation
 
 class StoriesViewModel: ObservableObject {
-    let news: [News]?
-    let timer: StoryTimer
+    let news: [News]
+    var timer: StoryTimer
     
-    
-    init(news: [News]? = nil) {
+    init(news: [News]) {
         self.news = news
-        
-        if let news = news {
-            timer = .init(items: news.count, interval: 6)
-        } else {
-            self.timer = .init(items: 3, interval: 6)
-        }
+        timer = .init(items: news.count, interval: 5)
     }
 }

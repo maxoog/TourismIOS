@@ -4,14 +4,22 @@ struct SingleStoryView: View {
     @State private var offset: CGSize = .zero
     
     @ObservedObject var viewModel: StoriesViewModel
+    @ObservedObject var timer: StoryTimer
     
     let dismiss: () -> Void
+    
+    init(viewModel: StoriesViewModel, dismiss: @escaping () -> Void) {
+        self.timer = viewModel.timer
+        self.viewModel = viewModel
+        self.dismiss = dismiss
+    }
     
     var body: some View {
         ZStack {
             GeometryReader { gr in
                 ZStack(alignment: .top) {
                     // block to display content
+                    SingleNewsView(news: viewModel.news[Int(viewModel.timer.progress)])
                     Text("0")
                         .frame(width: gr.size.width, height: gr.size.height, alignment: .center)
                         .onTapGesture {
