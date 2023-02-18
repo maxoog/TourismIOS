@@ -50,7 +50,7 @@ class ProfileService {
                 }
                 completion(self.mapProfile(profile))
             case let .failure(error):
-//                assertionFailure("profile data fetching error")
+                assertionFailure("profile data fetching error")
                 print(error)
             }
         }

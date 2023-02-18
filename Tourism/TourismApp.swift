@@ -4,7 +4,7 @@ import SwiftUI
 struct TourismApp: App {
     @ObservedObject var navigationController: NavigationController = NavigationController.shared
     
-    private static let key = "key"
+    private static let key = UUID().description
     
     @State private var isFirstLaunch: Bool = (UserDefaults.standard.value(forKey: Self.key) as? Bool) ?? true
     
@@ -25,7 +25,7 @@ struct TourismApp: App {
                 CustomNavigationView()
             }
             .overlay {
-                if false {
+                if isFirstLaunch {
                     GeometryReader { proxy in
                         screenFactory.onboardingScreen(size: proxy.size, dismiss: {
                             isFirstLaunch = false

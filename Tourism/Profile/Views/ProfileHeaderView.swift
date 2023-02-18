@@ -19,10 +19,6 @@ struct ProfileHeaderView: View {
                 case .failure:
                     Image(systemName: "photo")
                 @unknown default:
-                    // Since the AsyncImagePhase enum isn't frozen,
-                    // we need to add this currently unused fallback
-                    // to handle any new cases that might be added
-                    // in the future:
                     EmptyView()
                 }
             }
@@ -34,7 +30,6 @@ struct ProfileHeaderView: View {
                 Text(profile.mail)
                     .font(Design.Fonts.semiBoldSmall)
                     .foregroundColor(Design.Colors.lightViolet)
-                //                            .opacity(secondaryOpacity)
                 Text("\(profile.lastName) \(profile.firstName)")
                     .font(Design.Fonts.bold)
                 Text(profile.patr)
@@ -60,7 +55,6 @@ struct ProfileHeaderView: View {
                             .font(Design.Fonts.semiBoldMedium)
                     }
                 }
-                //                        .opacity(secondaryOpacity)
                 
                 VStack {
                     HStack {

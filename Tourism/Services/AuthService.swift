@@ -60,7 +60,6 @@ class AuthService: NSObject {
                     self.client.authToken = token
                 case .failure(let error):
                     self.client.authToken = token
-//                    assertionFailure("Cannot authorize!")
                     print(error)
                 }
             }

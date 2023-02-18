@@ -1,7 +1,6 @@
 import Foundation
 
 class StoriesViewModel: ObservableObject {
-//    @Published var showStories: Bool = false
     let news: [News]?
     let timer: StoryTimer
     

@@ -1,10 +1,3 @@
-//
-//  Achivement.swift
-//  Tourism
-//
-//  Created by Данила Семисчастнов on 18.02.2023.
-//
-
 import Foundation
 
 struct Achivement: Hashable {

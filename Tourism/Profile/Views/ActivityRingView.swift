@@ -1,10 +1,3 @@
-//
-//  ActivityRingView.swift
-//  Tourism
-//
-//  Created by Данила Семисчастнов on 18.02.2023.
-//
-
 import SwiftUI
 
 struct ActivityRingView: View {

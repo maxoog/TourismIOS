@@ -1,10 +1,3 @@
-//
-//  OnboardingViewModel.swift
-//  Tourism
-//
-//  Created by Maksim Zenkov on 18.02.2023.
-//
-
 import SwiftUI
 
 class OnboardingViewModel: ObservableObject {

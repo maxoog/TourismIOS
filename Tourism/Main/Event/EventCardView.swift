@@ -2,7 +2,6 @@ import SwiftUI
 
 struct EventCardView: View {
     let cardInfo: Event
-//    @Binding var liked: Bool
     
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()

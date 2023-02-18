@@ -21,7 +21,7 @@ class BookService {
             case let .success(books):
                 completion(books)
             case let .failure(error):
-//                assertionFailure("livings parse error")
+                assertionFailure("livings parse error")
                 print(error)
             }
         }

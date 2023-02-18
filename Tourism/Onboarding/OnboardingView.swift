@@ -1,10 +1,3 @@
-//
-//  OnboardingView.swift
-//  Tourism
-//
-//  Created by Maksim Zenkov on 18.02.2023.
-//
-
 import SwiftUI
 
 struct OnboardingView: View {

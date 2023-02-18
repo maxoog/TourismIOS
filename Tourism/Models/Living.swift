@@ -1,7 +1,5 @@
 import Foundation
 
-// ниже находятся апишные модельки которые пока находятся в обсуждении
-
 struct LivingsResponse: Decodable {
     let items: [Living]
 }

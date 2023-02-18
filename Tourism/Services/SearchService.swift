@@ -32,7 +32,7 @@ class SearchService {
             case let .success(priceResponse):
                 completion(priceResponse.price)
             case let .failure(error):
-                assertionFailure("livings parse error")
+                assertionFailure("parse error")
                 print(error)
             }
         }

@@ -1,9 +1,3 @@
-//
-//  ShortProfileHeaderView.swift
-//  Tourism
-//
-//  Created by Данила Семисчастнов on 18.02.2023.
-//
 
 import SwiftUI
 
@@ -26,10 +20,6 @@ struct ShortProfileHeaderView: View {
                 case .failure:
                     Image(systemName: "photo")
                 @unknown default:
-                    // Since the AsyncImagePhase enum isn't frozen,
-                    // we need to add this currently unused fallback
-                    // to handle any new cases that might be added
-                    // in the future:
                     EmptyView()
                 }
             }
