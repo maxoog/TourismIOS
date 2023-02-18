@@ -27,6 +27,7 @@ enum Design {
     
     enum Fonts {
         public static let medium11: Font = Font.custom("Manrope-Medium", size: 11)
+        public static let medium12: Font = Font.custom("Manrope-Medium", size: 12)
         public static let medium14: Font = Font.custom("Manrope-Medium", size: 14)
         public static let medium: Font = Font.custom("Manrope-Medium", size: 18)
         public static let extraBold: Font = Font.custom("Manrope-ExtraBold", size: 18)
@@ -42,7 +43,7 @@ enum Design {
         public static let light: Font = Font.custom("Manrope-Light", size: 18)
         public static let regular: Font = Font.custom("Manrope-Regular", size: 18)
         public static let semiBold: Font = Font.custom("Manrope-SemiBold", size: 18)
-        public static let semiBoldMedium: Font = Font.custom("Manrope-SemiBold", size: 12)
+        public static let semiBoldMedium: Font = Font.custom("Manrope-SemiBold", size: 14)
         public static let semiBoldSmall: Font = Font.custom("Manrope-SemiBold", size: 12)
         public static let common: Font = Font.custom("Manrope", size: 18)
         public static let newsSmallFont: Font = Font.custom("Manrope", size: 10)

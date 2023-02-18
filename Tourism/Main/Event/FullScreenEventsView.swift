@@ -5,77 +5,172 @@ struct FullScreenEventsView: View {
     let service: SearchService
     let dismiss: () -> Void
     
-    @State var price: Int = 0
+    @State var trainPrice: Int = 0
+    @State var planePrice: Int = 0
+    @State var currentIndex: Int = 1
+    @State var showSharingSheet: Bool = false
+    
+    let count: Int = 4
     
     var body: some View {
         ZStack {
             ScrollView {
-                Spacer(minLength: 400)
+                Spacer(minLength: 320)
                 
-                VStack {
-                    Text(event.region)
+                VStack(alignment: .leading) {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Image("geoIcon")
+                            
+                            VStack {
+                                Text("\(event.region)")
+                                    .font(Design.Fonts.medium14)
+                            }
+                            
+                            Spacer()
+                        }
+                        .frame(maxWidth: .infinity)
+                        
+                        Text("Посмотреть на карте")
+                            .font(Design.Fonts.bold11)
+                            .foregroundColor(Design.Colors.lightGray)
+                    }
+                    .padding(.vertical)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
+                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                    .padding(.bottom, 10)
+                    .padding(.horizontal)
+                    .defaultShadow()
                     
-                    Text(event.price)
+                    HStack {
+                        Text("Стоимость:")
+                            .font(Design.Fonts.bold)
+                        
+                        Spacer()
+                        
+                        Text(event.price == "0" ? "Бесплатно" : "\(event.price)₽")
+                            .font(Design.Fonts.bold12)
+                            .foregroundColor(Design.Colors.lightViolet)
+                    }
+                    .padding(.vertical)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
+                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                    .padding(.bottom, 10)
+                    .padding(.horizontal)
+                    .defaultShadow()
                     
-                    Text(event.description)
+                    VStack(alignment: .leading) {
+                        Text("Стоимость билетов")
+                            .font(Design.Fonts.bold)
+                        
+                        HStack {
+                            Text("Поезд:")
+                            Spacer()
+                            Text(trainPrice == 0 ? "Не удалось найти билет" : "\(trainPrice)₽")
+                                .foregroundColor(Design.Colors.lightViolet)
+                        }
+                        .font(Design.Fonts.bold12)
+                        
+                        HStack {
+                            Text("Самолет:")
+                            Spacer()
+                            Text(planePrice == 0 ? "Не удалось найти билет" : "\(planePrice)₽")
+                                .foregroundColor(Design.Colors.lightViolet)
+                        }
+                        .font(Design.Fonts.bold12)
+                        
+                    }
+                    .padding(.vertical)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
+                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                    .padding(.bottom, 10)
+                    .padding(.horizontal)
+                    .defaultShadow()
+                    
+                    VStack(alignment: .leading) {
+                        Text("Описание")
+                            .font(Design.Fonts.bold)
+                            .padding(.bottom, 10)
+                        Text(event.description)
+                            .font(Design.Fonts.medium14)
+                            .foregroundColor(.black.opacity(0.6))
+                    }
+                    .padding(.vertical)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
+                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                    .padding(.bottom, 10)
+                    .padding(.horizontal)
+                    .defaultShadow()
                 }
             }
             
             VStack {
                 GeometryReader { gr in
                     ZStack(alignment: .top) {
-                        Image("testImage")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: gr.size.width, height: 300)
-//                            .aspectRatio(contentMode: .fit)
-                            .edgesIgnoringSafeArea(.top)
-                            .zIndex(1)
+                        TabView {
+                            ForEach(0..<count) { ind in
+                                Image("testImage")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: gr.size.width, height: 300)
+                                    .clipped()
+                                    .edgesIgnoringSafeArea(.top)
+                                    .zIndex(1)
+                                    .onAppear {
+                                        currentIndex = ind + 1
+                                    }
+                            }
+                        }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                         
-                        VStack {
+                        VStack(alignment: .leading) {
                             HStack {
                                 Button {
                                     dismiss()
                                 } label: {
                                     Image("backIcon")
-                                        .padding()
+                                        .padding(5)
                                         .background(.white, in: Circle())
                                 }
                                 
                                 Spacer()
                                 
-                                Text("1 / 13")
+                                Text("\(currentIndex) / \(count)")
                                     .font(Design.Fonts.medium11)
                                     .foregroundColor(.white)
-                                    .padding(.vertical, 5)
+                                    .padding(.vertical, 2)
                                     .padding(.horizontal, 10)
-                                    .background(.black.opacity(0.3), in: RoundedRectangle(cornerRadius: 10))
+                                    .background(.black.opacity(0.3), in: RoundedRectangle(cornerRadius: 20))
                                 
                                 Spacer()
                                 
-                                Button {
-                                    dismiss()
-                                } label: {
+                                ShareLink(item: "http://google.com") {
                                     Image("shareIcon")
-                                        .padding()
+                                        .padding(5)
                                         .background(.white, in: Circle())
                                 }
                             }
                             
                             Spacer()
                             
-                            HStack {
-                                Text("-")
+                            VStack(alignment: .leading) {
+                                Text(event.timeRange)
+                                    .font(Design.Fonts.medium12)
+                                    .foregroundColor(.white)
                                 
-                                Spacer()
-                                
-                                Text("+")
+                                Text(event.name)
+                                    .font(Design.Fonts.bold16)
+                                    .foregroundColor(.white)
                             }
                         }
                         .zIndex(2)
                         .padding(.top, 60)
                         .padding(.horizontal)
-                        .padding(.bottom, 40)
+                        .padding(.bottom)
                     }
                     .frame(height: 300)
                     .clipShape(RoundedRectangle(cornerRadius: 30))
@@ -84,14 +179,34 @@ struct FullScreenEventsView: View {
                 
                 Spacer()
                 
-                Text("Оставить заявку")
+                HStack {
+                    Button {
+                        
+                    } label: {
+                        Text("Оставить заявку")
+                            .foregroundColor(.black)
+                            .font(Design.Fonts.semiBoldMedium)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Design.Gradients.buttonGradient, in: RoundedRectangle(cornerRadius: 20))
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+                .padding(.bottom, 30)
+                .background(.white)
+                .frame(maxWidth: .infinity)
             }
         }
-        .edgesIgnoringSafeArea(.top)
+        .background(Design.Colors.back)
+        .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear {
-//            service.getTrainPrice(for: TrainRequest(frm: "Москва", to: event.region, date: "18.02.2023")) { newPrice in
-//                price = newPrice
-//            }
+            service.getTrainPrice(for: TrainRequest(frm: "Москва", to: event.region, date: "18.02.2023")) { newPrice in
+                trainPrice = newPrice
+            }
+            service.getPlanePrice(for: PlaneRequest(frm: "Москва", to: event.region)) { newPrice in
+                planePrice = newPrice
+            }
         }
     }
 }

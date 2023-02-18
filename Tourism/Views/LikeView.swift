@@ -3,6 +3,8 @@ import SwiftUI
 struct LikeView: View {
     @State var isLiked: Bool
     
+    let color: Color
+    
     var body: some View {
         Button {
             isLiked.toggle()
@@ -12,7 +14,7 @@ struct LikeView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 30)
-                .foregroundColor(.white)
+                .foregroundColor(color)
         }
 
     }

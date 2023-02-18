@@ -21,7 +21,26 @@ class SearchService {
     
     func getTrainPrice(for request: TrainRequest, completion: @escaping (Int) -> Void) {
         let request = client.session.request(
-            "\(client.address)/rzd",
+            "\(client.address)/tickets/rzd",
+            method: .post,
+            parameters: request,
+            encoder: JSONParameterEncoder()
+        )
+        
+        request.responseDecodable(of: PriceResponse.self) { response in
+            switch response.result {
+            case let .success(priceResponse):
+                completion(priceResponse.price)
+            case let .failure(error):
+                assertionFailure("parse error")
+                print(error)
+            }
+        }
+    }
+    
+    func getPlanePrice(for request: PlaneRequest, completion: @escaping (Int) -> Void) {
+        let request = client.session.request(
+            "\(client.address)/tickets/avia",
             method: .post,
             parameters: request,
             encoder: JSONParameterEncoder()
@@ -43,4 +62,9 @@ struct TrainRequest: Codable {
     let frm: String
     let to: String
     let date: String
+}
+
+struct PlaneRequest: Codable {
+    let frm: String
+    let to: String
 }

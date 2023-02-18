@@ -12,11 +12,16 @@ struct EventCardView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
-                Image("icpc")
-                    .resizable()
-                    .frame(maxWidth: .greatestFiniteMagnitude)
-                    .frame(height: 200)
-                    .cornerRadius(20)
+                ZStack(alignment: .bottom) {
+                    Image("icpc")
+                        .resizable()
+                        .frame(maxWidth: .greatestFiniteMagnitude)
+                        .frame(height: 200)
+                    
+                    LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
+                        .frame(height: 50)
+                }
+                .cornerRadius(20)
                 
                 VStack(alignment: .leading) {
                     HStack {
@@ -30,7 +35,7 @@ struct EventCardView: View {
                         
                         Spacer()
                         
-                        LikeView(isLiked: false)
+                        LikeView(isLiked: false, color: .white)
                     }
                     .padding()
                     

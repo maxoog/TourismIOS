@@ -25,7 +25,7 @@ struct TourismApp: App {
                 CustomNavigationView()
             }
             .overlay {
-                if isFirstLaunch {
+                if false {
                     GeometryReader { proxy in
                         screenFactory.onboardingScreen(size: proxy.size, dismiss: {
                             isFirstLaunch = false
