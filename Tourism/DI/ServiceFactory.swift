@@ -32,8 +32,8 @@ final class ScreenFactory {
         return VKAuthView(viewModel: appFactory.vkAuthViewModel(onAuthorize: onAuthorize))
     }
     
-    func eventFullScreen(event: Event) -> FullScreenEventsView {
-        return FullScreenEventsView(event: event, service: appFactory.searchService)
+    func eventFullScreen(event: Event, dismiss: @escaping () -> Void) -> FullScreenEventsView {
+        return FullScreenEventsView(event: event, service: appFactory.searchService, dismiss: dismiss)
     }
 
 }
