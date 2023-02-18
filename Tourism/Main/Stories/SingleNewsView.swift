@@ -13,23 +13,25 @@ struct SingleNewsView: View {
     var body: some View {
         GeometryReader { gr in
             ZStack {
-//                news.color
-//                    .ignoresSafeArea()
-                
-                AsyncImage(url: URL(string: news.photo)) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: gr.size.width, height: gr.size.height)
-                    case .failure:
-                        Image(systemName: "photo")
-                    @unknown default:
-                        EmptyView()
+                ZStack(alignment: .bottom) {
+                    AsyncImage(url: URL(string: news.photo)) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: gr.size.width, height: gr.size.height)
+                        case .failure:
+                            Image(systemName: "photo")
+                        @unknown default:
+                            EmptyView()
+                        }
                     }
+                    
+                    LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
+                        .frame(height: 300)
                 }
                 
                 VStack {
