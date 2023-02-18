@@ -88,7 +88,8 @@ struct OnboardingView: View {
     private func image(name: String) -> some View {
         VStack {
             Image(name)
-                .scaleEffect(1.05)
+                .frame(width: size.width)
+//                .scaleEffect(1.05)
             Spacer()
         }
     }

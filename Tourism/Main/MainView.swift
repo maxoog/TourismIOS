@@ -82,10 +82,10 @@ struct MainView: View {
             
             Spacer(minLength: 100)
         }
-        .sheet(item: $viewModel.showedEvent, onDismiss: viewModel.dismissAllCards) { event in
-            screenFactory.eventFullScreen(event: event)
+        .fullScreenCover(item: $viewModel.showedEvent, onDismiss: viewModel.dismissAllCards) { event in
+            screenFactory.eventFullScreen(event: event, dismiss: { viewModel.showedEvent = nil })
         }
-        .sheet(item: $viewModel.showedLiving, onDismiss: viewModel.dismissAllCards) { living in
+        .fullScreenCover(item: $viewModel.showedLiving, onDismiss: viewModel.dismissAllCards) { living in
             FullScreenLivingView(living: living)
         }
         .overlay {
