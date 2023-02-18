@@ -26,11 +26,16 @@ struct CustomNavigationView: View {
                 HStack {
                     Text("Ваши бронирования")
                         .padding(.leading, 16)
-                        .font(.title)
-                        .fontWeight(.bold)
+                        .font(Design.Fonts.bold24)
                         .foregroundColor(.black)
                     Spacer()
                 }
+                .padding(.top, 70)
+                .padding(.bottom, 20)
+                .frame(maxWidth: .infinity)
+                .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                .edgesIgnoringSafeArea(.top)
+                .defaultShadow()
             }
             
             Spacer()
