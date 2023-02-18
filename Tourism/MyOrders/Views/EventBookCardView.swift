@@ -37,7 +37,7 @@ struct EventBookCardView: View {
                         
                         Spacer()
                         
-                        LikeView(isLiked: false)
+                        LikeView(isLiked: false, color: .white)
                     }
                     .padding()
                     

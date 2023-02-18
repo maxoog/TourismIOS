@@ -20,7 +20,7 @@ struct LivingBookCardView: View {
                     HStack {
                         Spacer()
                         
-                        LikeView(isLiked: false)
+                        LikeView(isLiked: false, color: .white)
                     }
                     .padding()
                     
