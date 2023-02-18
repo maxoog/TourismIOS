@@ -8,8 +8,8 @@ enum Design {
         public static let darkBlue: Color = .init(uiColor: .init(red: 0.008, green: 0.149, blue: 0.42, alpha: 1))
         public static let mainGreen: Color = .init(uiColor: .init(red: 0, green: 0.631, blue: 0.604, alpha: 1))
         public static let lightGray: Color = .init(uiColor: .init(red: 0.73, green: 0.73, blue: 0.76, alpha: 1))
-        public static let lightViolet: Color = .init(uiColor: UIColor(red: 0.645, green: 0.612, blue: 0.847, alpha: 1))
-        
+        public static let lightViolet: Color = .init(uiColor: .init(red: 0.645, green: 0.612, blue: 0.847, alpha: 1))
+        public static let lightGreyOnboargind: Color = .init(uiColor: .init(red: 0.843, green: 0.843, blue: 0.867, alpha: 1))
         public static let red: Color = .init(uiColor: .init(red: 0.92, green: 0.20, blue: 0.14, alpha: 1))
     }
     
@@ -37,7 +37,7 @@ enum Design {
         public static let bold14: Font = Font.custom("Manrope-Bold", size: 14)
         public static let bold16: Font = Font.custom("Manrope-Bold", size: 14)
         public static let bold: Font = Font.custom("Manrope-Bold", size: 18)
-        
+        public static let bold24: Font = Font.custom("Manrope-Bold", size: 24)
         public static let extraLight: Font = Font.custom("Manrope-ExtraLight", size: 18)
         public static let light: Font = Font.custom("Manrope-Light", size: 18)
         public static let regular: Font = Font.custom("Manrope-Regular", size: 18)
@@ -46,6 +46,7 @@ enum Design {
         public static let semiBoldSmall: Font = Font.custom("Manrope-SemiBold", size: 12)
         public static let common: Font = Font.custom("Manrope", size: 18)
         public static let newsSmallFont: Font = Font.custom("Manrope", size: 10)
+        public static let common14: Font = Font.custom("Manrope", size: 14)
     }
     
     enum LottieFile {

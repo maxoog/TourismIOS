@@ -4,35 +4,36 @@ import SwiftUI
 struct TourismApp: App {
     @ObservedObject var navigationController: NavigationController = NavigationController.shared
     
-    @State private var isFirstLaunch: Bool = UserDefaults.standard.bool(forKey: "first-launch")
+    private static let key = UUID().description
+    
+    @State private var isFirstLaunch: Bool = (UserDefaults.standard.value(forKey: Self.key) as? Bool) ?? true
     
     var body: some Scene {
         WindowGroup {
-            Group {
-                if true {
-                    ZStack {
-                        Group {
-                            if navigationController.activeTab == .search {
-                                screenFactory.mainScreen()
-                                    .animation(.linear)
-                                    .zIndex(1)
-                            } else if navigationController.activeTab == .booking {
-                                screenFactory.myOrdersScreen()
-                                    .animation(.linear)
-                                    .zIndex(2)
-                            } else {
-                                screenFactory.profileScreen()
-                                    .zIndex(3)
-                            }
-                        }
-                        
-                        CustomNavigationView()
-                            .zIndex(4)
+            ZStack {
+                Group {
+                    if navigationController.activeTab == .search {
+                        screenFactory.mainScreen()
+                    } else if navigationController.activeTab == .booking {
+                        screenFactory.myOrdersScreen()
+                    } else {
+                        screenFactory.profileScreen()
                     }
-                } else {
-                    screenFactory.onboardingScreen()
+                }
+                CustomNavigationView()
+            }
+            .overlay {
+                if isFirstLaunch {
+                    GeometryReader { proxy in
+                        screenFactory.onboardingScreen(size: proxy.size, dismiss: {
+                            isFirstLaunch = false
+                            UserDefaults.standard.set(false, forKey: Self.key)
+                        })
+                    }
+                    .transition(.opacity.animation(.easeInOut(duration: 0.5)))
                 }
             }
+            
         }
     }
 }

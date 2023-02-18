@@ -35,6 +35,7 @@
 		B10C70BD299D2D1200DC5765 /* VKAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10C70BC299D2D1200DC5765 /* VKAuthView.swift */; };
 		B10C70BF299D2D1800DC5765 /* VKAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10C70BE299D2D1800DC5765 /* VKAuthViewModel.swift */; };
 		B10C70C5299D30D500DC5765 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B10C70C4299D30D500DC5765 /* Alamofire */; };
+		B13254C729A0F6D400D47215 /* OffsetPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254C629A0F6D400D47215 /* OffsetPageTabView.swift */; };
 		B1B1200C2990372200009A4C /* TourismApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1200B2990372200009A4C /* TourismApp.swift */; };
 		B1B120102990372300009A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1B1200F2990372300009A4C /* Assets.xcassets */; };
 		B1B120132990372300009A4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1B120122990372300009A4C /* Preview Assets.xcassets */; };
@@ -46,6 +47,8 @@
 		B1B120452990387A00009A4C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B120442990387A00009A4C /* ProfileView.swift */; };
 		B1B120472990388F00009A4C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B120462990388F00009A4C /* ProfileViewModel.swift */; };
 		B1B1204E29903A9D00009A4C /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1204D29903A9D00009A4C /* Design.swift */; };
+		B1BDE48D29A0DDF800A831D0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BDE48C29A0DDF800A831D0 /* OnboardingView.swift */; };
+		B1BDE48F29A0DE0100A831D0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BDE48E29A0DE0100A831D0 /* OnboardingViewModel.swift */; };
 		B1EBEE7F299E5328001CDB90 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EBEE7E299E5328001CDB90 /* ProfileHeaderView.swift */; };
 		B1EBEE92299E825F001CDB90 /* YandexMobileMetrica in Frameworks */ = {isa = PBXBuildFile; productRef = B1EBEE91299E825F001CDB90 /* YandexMobileMetrica */; };
 		B1EBEE94299E825F001CDB90 /* YandexMobileMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = B1EBEE93299E825F001CDB90 /* YandexMobileMetricaCrashes */; };
@@ -110,6 +113,7 @@
 		B10C70B6299D2CC600DC5765 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileService.swift; path = Tourism/Services/ProfileService.swift; sourceTree = SOURCE_ROOT; };
 		B10C70BC299D2D1200DC5765 /* VKAuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VKAuthView.swift; path = Tourism/VK/VKAuthView.swift; sourceTree = SOURCE_ROOT; };
 		B10C70BE299D2D1800DC5765 /* VKAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VKAuthViewModel.swift; path = Tourism/VK/VKAuthViewModel.swift; sourceTree = SOURCE_ROOT; };
+		B13254C629A0F6D400D47215 /* OffsetPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetPageTabView.swift; sourceTree = "<group>"; };
 		B1B120082990372200009A4C /* Tourism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tourism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1B1200B2990372200009A4C /* TourismApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourismApp.swift; sourceTree = "<group>"; };
 		B1B1200F2990372300009A4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 		B1B120442990387A00009A4C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B1B120462990388F00009A4C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B1B1204D29903A9D00009A4C /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		B1BDE48C29A0DDF800A831D0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B1BDE48E29A0DE0100A831D0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		B1EBEE7E299E5328001CDB90 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B1EBEE96299ED189001CDB90 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B1EBEE98299ED1AB001CDB90 /* Living.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Living.swift; sourceTree = "<group>"; };
@@ -266,6 +272,7 @@
 				B1B12039299037E200009A4C /* Profile */,
 				B10C70BB299D2D0200DC5765 /* VKAuth */,
 				B1B120352990377800009A4C /* DI */,
+				B1BDE48B29A0DDC500A831D0 /* Onboarding */,
 				B1B1204C29903A5400009A4C /* Services */,
 				B1B1200F2990372300009A4C /* Assets.xcassets */,
 				B1EBEEAC299FE053001CDB90 /* Resources */,
@@ -338,9 +345,19 @@
 			children = (
 				5A8EC6AA299904E6003B54DA /* ScrollViewSharingOffset.swift */,
 				5A655A7F29A02B5C00295A3E /* ViewExtension.swift */,
+				B13254C629A0F6D400D47215 /* OffsetPageTabView.swift */,
 				B1EBEEBF29A03645001CDB90 /* LikeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B1BDE48B29A0DDC500A831D0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B1BDE48C29A0DDF800A831D0 /* OnboardingView.swift */,
+				B1BDE48E29A0DE0100A831D0 /* OnboardingViewModel.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B1EBEE95299ED179001CDB90 /* Models */ = {
@@ -545,7 +562,9 @@
 				B1EBEE99299ED1AB001CDB90 /* Living.swift in Sources */,
 				5A830857299FCED100F8BCB6 /* FullScreenLivingView.swift in Sources */,
 				5A8EC6A72998223C003B54DA /* NavigationController.swift in Sources */,
+				B13254C729A0F6D400D47215 /* OffsetPageTabView.swift in Sources */,
 				B1EBEEA1299F804C001CDB90 /* Filters.swift in Sources */,
+				B1BDE48D29A0DDF800A831D0 /* OnboardingView.swift in Sources */,
 				B1B120412990385500009A4C /* MyOrdersView.swift in Sources */,
 				5A8EC6A12996EDD6003B54DA /* LoadingRectangle.swift in Sources */,
 				5A655A8029A02B5C00295A3E /* ViewExtension.swift in Sources */,
@@ -556,6 +575,7 @@
 				B1B1200C2990372200009A4C /* TourismApp.swift in Sources */,
 				B1B12037299037B200009A4C /* ServiceFactory.swift in Sources */,
 				B10C70B3299D2CBB00DC5765 /* AuthService.swift in Sources */,
+				B1BDE48F29A0DE0100A831D0 /* OnboardingViewModel.swift in Sources */,
 				B10C70B7299D2CC600DC5765 /* ProfileService.swift in Sources */,
 				5A655A7E29A00D1400295A3E /* Profile.swift in Sources */,
 				B1EBEE9F299F7F1A001CDB90 /* News.swift in Sources */,

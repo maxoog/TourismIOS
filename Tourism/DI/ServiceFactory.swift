@@ -12,10 +12,8 @@ final class ScreenFactory {
         return MyOrdersView(viewModel: appFactory.myOrdersViewModel())
     }
     
-    func onboardingScreen() -> SingleStoryView {
-        return SingleStoryView(viewModel: appFactory.onboardingViewModel()) {
-            UserDefaults.standard.set(false, forKey: "first-launch")
-        }
+    func onboardingScreen(size: CGSize, dismiss: @escaping () -> Void) -> OnboardingView {
+        return OnboardingView(viewModel: appFactory.onboardingViewModel(dismiss: dismiss), size: size)
     }
     
     func newsScreen(news: [News], firstNewsIndex: Int, dismiss: @escaping () -> Void) -> SingleStoryView {
@@ -66,6 +64,10 @@ fileprivate final class AppFactory {
         } else {
             assertionFailure("Error while activating metrica")
         }
+    }
+    
+    func onboardingViewModel(dismiss: @escaping () -> Void) -> OnboardingViewModel {
+        return OnboardingViewModel(dismiss: dismiss)
     }
     
     func myOrdersViewModel() -> MyOrdersViewModel {
