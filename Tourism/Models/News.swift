@@ -16,6 +16,14 @@ struct News {
         return [
             
             News(
+                        title: "Путешествия бесплатно!",
+                        description: "В течение 3 месяцев оплачивайте ваши бронирования при помощи пушкинской карты",
+                        photo: "https://static.mk.ru/upload/entities/2021/09/02/14/articles/detailPicture/aa/c4/97/39/2821dedd9e6c8464baa81ce1bfe7ba5f.jpg",
+                        url: "https://студтуризм.рф/news/w81OeDIGBu",
+                        color: .red
+                    ),
+            
+            News(
                         title: "По обмену в горы",
                         description: "До июля 2023 оплачивай общежития и билеты на события по Пушкинской карте. Не упусти возможность!",
                         photo: "https://stud-files.sabir.pro/files/dNCqcVG23q-48f6a56210c20608d03297611c6e2091f44570e6e76e5e167acb8d0ae9577b33.jpeg",

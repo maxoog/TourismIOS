@@ -32,6 +32,11 @@ class StoryTimer: ObservableObject {
         })
     }
     
+    func pause() {
+        cancellable?.cancel()
+        cancellable = nil
+    }
+    
     func nextStory() {
         var newProgress = Int(progress) + 1
         // handle last story
@@ -50,6 +55,6 @@ class StoryTimer: ObservableObject {
             newProgress -= 1
         }
         
-        progress = Double(newProgress)
+        progress = Double(max(newProgress, 0))
     }
 }

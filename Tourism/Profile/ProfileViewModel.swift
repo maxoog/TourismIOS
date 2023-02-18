@@ -10,20 +10,11 @@ class ProfileViewModel: ObservableObject {
     @Published var showAuthView: Bool = false
     @Published var userProfile: Profile?
     
-    @Published var userAchivements: [Achivement] = Array(repeating:
-        Achivement(
-            title: "Фантастические места",
-            description: "Посетите главные природные достопримечательности России",
-            icon: "achivementIcon",
-            current: 4,
-            avaliable: 10,
-            reward: 240
-        ), count: 3)
+    @Published var userAchivements: [Achivement] = Achivement.testArray
     
     init(authService: AuthService, profileService: ProfileService) {
         self.authService = authService
         self.profileService = profileService
-//        NavigationController.shared.hidden = true
         
         let cancellable = authService.isAuthorizedPublisher
             .receive(on: DispatchQueue.main)

@@ -11,11 +11,10 @@ struct SingleNewsView: View {
     let news: News
     
     var body: some View {
-        ZStack {
-            news.color
-                .ignoresSafeArea()
-            VStack {
-                Spacer()
+        GeometryReader { gr in
+            ZStack {
+//                news.color
+//                    .ignoresSafeArea()
                 
                 AsyncImage(url: URL(string: news.photo)) { phase in
                     switch phase {
@@ -25,8 +24,7 @@ struct SingleNewsView: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 300, height: 300)
-                            .clipShape(Circle())
+                            .frame(width: gr.size.width, height: gr.size.height)
                     case .failure:
                         Image(systemName: "photo")
                     @unknown default:
@@ -34,36 +32,40 @@ struct SingleNewsView: View {
                     }
                 }
                 
-                Spacer()
-                
-                VStack(alignment: .leading, spacing: 16) {
-                    Text(news.title)
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(.white)
-                        .font(Design.Fonts.bold24)
-                        .padding(.trailing, 50)
-                    Text(news.description)
-                        .foregroundColor(.white)
-                        .font(Design.Fonts.medium14)
-                }
-                .padding(.horizontal, 16)
-                
-                Button {
+                VStack {
+                    Spacer()
                     
-                } label: {
-                    Text("Подробнее")
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .greatestFiniteMagnitude)
-                        .frame(height: 56)
-//                        .padding(.horizontal, 16)
-                        .background(.white)
-                        .cornerRadius(16)
-                        .padding(16)
+                    Spacer()
+                    
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text(news.title)
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(.white)
+                            .font(Design.Fonts.bold24)
+                            .padding(.trailing, 50)
+                        Text(news.description)
+                            .foregroundColor(.white)
+                            .font(Design.Fonts.medium14)
+                    }
+                    .padding(.horizontal, 16)
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("Подробнее")
+                            .foregroundColor(.black)
+                            .frame(maxWidth: .greatestFiniteMagnitude)
+                            .frame(height: 56)
+                        //                        .padding(.horizontal, 16)
+                            .background(.white)
+                            .cornerRadius(16)
+                            .padding(16)
+                    }
+                    //                .padding(.bottom, 16)
+                    
                 }
-//                .padding(.bottom, 16)
-
+                
             }
-            
         }
     }
 }

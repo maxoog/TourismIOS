@@ -146,12 +146,13 @@ struct ProfileView: View {
             // MARK: - Profile Info
             VStack {
                 ZStack(alignment: .top) {
+                    ShortProfileHeaderView(profile: testProfile, imageSize: imageSize * 0.4)
+                        .zIndex(1)
+//                            .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)))
                     if isFullTitle {
                         ProfileHeaderView(profile: testProfile, imageSize: imageSize)
+                            .zIndex(2)
                             .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)).animation(.easeInOut(duration: 0.3)))
-                    } else {
-                        ShortProfileHeaderView(profile: testProfile, imageSize: imageSize * 0.4)
-                            .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)))
                     }
                 }
                 

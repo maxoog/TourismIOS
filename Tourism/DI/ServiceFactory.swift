@@ -17,7 +17,7 @@ final class ScreenFactory {
     }
     
     func newsScreen(news: [News], firstNewsIndex: Int, dismiss: @escaping () -> Void) -> SingleStoryView {
-        return SingleStoryView(viewModel: appFactory.newsViewModel(news: news), dismiss: dismiss)
+        return SingleStoryView(viewModel: appFactory.newsViewModel(news: news), index: firstNewsIndex, dismiss: dismiss)
     }
     
     func mainScreen() -> MainView {

@@ -6,9 +6,13 @@ struct SingleStoryView: View {
     @ObservedObject var viewModel: StoriesViewModel
     @ObservedObject var timer: StoryTimer
     
+    @GestureState private var isDetectingLongPress = false
+    
     let dismiss: () -> Void
     
-    init(viewModel: StoriesViewModel, dismiss: @escaping () -> Void) {
+    init(viewModel: StoriesViewModel, index: Int, dismiss: @escaping () -> Void) {
+        viewModel.timer.progress += Double(index)
+        viewModel.timer.dismiss = dismiss
         self.timer = viewModel.timer
         self.viewModel = viewModel
         self.dismiss = dismiss
@@ -20,11 +24,7 @@ struct SingleStoryView: View {
                 ZStack(alignment: .top) {
                     // block to display content
                     SingleNewsView(news: viewModel.news[Int(viewModel.timer.progress)])
-                    Text("0")
-                        .frame(width: gr.size.width, height: gr.size.height, alignment: .center)
-                        .onTapGesture {
-                            dismiss()
-                        }
+                    
                     // loading bars
                     HStack(alignment: .center, spacing: 4) {
                         ForEach(0..<viewModel.timer.itemsCount) { x in
@@ -32,6 +32,7 @@ struct SingleStoryView: View {
                                 .frame(width: nil, height: 2, alignment: .leading)
                         }
                     }.padding()
+                    
                     // clear fields to handle forward and backward
                     HStack(alignment: .center, spacing: 0) {
                         Rectangle()
@@ -40,7 +41,11 @@ struct SingleStoryView: View {
                             .onTapGesture {
                                 viewModel.timer.previousStory()
                             }
-                        Spacer(minLength: gr.size.width / 3)
+                        
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .contentShape(Rectangle())
+                        
                         Rectangle()
                             .foregroundColor(.clear)
                             .contentShape(Rectangle())
@@ -48,8 +53,19 @@ struct SingleStoryView: View {
                                 viewModel.timer.nextStory()
                             }
                     }
+//                    .highPriorityGesture(
+//                        LongPressGesture(minimumDuration: 1)
+//                            .updating($isDetectingLongPress, body: { currentState, gestureState, transaction in
+//                                timer.pause()
+//                                gestureState = currentState
+//                                transaction.animation = Animation.easeIn(duration: 2.0)
+//                            })
+//                            .onEnded({ _ in
+//                                timer.start()
+//                            })
+//                    )
                 }
-                .background(Color.red)
+                .background(Color.black)
                 .cornerRadius(10)
                 .offset(offset)
                 .gesture(
