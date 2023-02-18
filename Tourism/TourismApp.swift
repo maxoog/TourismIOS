@@ -4,7 +4,7 @@ import SwiftUI
 struct TourismApp: App {
     @ObservedObject var navigationController: NavigationController = NavigationController.shared
     
-    private static let key = UUID().description
+    private static let key = "key"
     
     @State private var isFirstLaunch: Bool = (UserDefaults.standard.value(forKey: Self.key) as? Bool) ?? true
     
@@ -15,7 +15,9 @@ struct TourismApp: App {
                     if navigationController.activeTab == .search {
                         screenFactory.mainScreen()
                     } else if navigationController.activeTab == .booking {
-                        screenFactory.myOrdersScreen()
+                        NavigationStack {
+                            screenFactory.myOrdersScreen()
+                        }
                     } else {
                         screenFactory.profileScreen()
                     }

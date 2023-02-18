@@ -5,14 +5,12 @@ struct CustomNavigationView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if navigationController.showTitle {
                 HStack {
                     Text("Привет, Мария!")
                         .padding(.leading, 20)
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundStyle(Design.Gradients.titleGradient)
-                    
                     Spacer()
                 }
                 .padding(.top, 70)
@@ -22,7 +20,7 @@ struct CustomNavigationView: View {
                 .edgesIgnoringSafeArea(.top)
                 .defaultShadow()
                 .offset(y: navigationController.hidden ? -200 : 0)
-            }
+                .offset(y: navigationController.activeTab == .search ? 0 : -200)
             
             Spacer()
             

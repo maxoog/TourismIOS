@@ -21,11 +21,12 @@ struct EventCardView: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        if Int.random(in: 0...1) == 1 {
+                        if Int.random(in: 0...1) != 2 {
                             Text("Волонтерство")
                                 .font(Design.Fonts.medium11)
                                 .padding(5)
-                                .background(.green, in: RoundedRectangle(cornerRadius: 10))
+                                .foregroundColor(Design.Colors.darkBlue)
+                                .background(Design.Gradients.titleGradient, in: RoundedRectangle(cornerRadius: 10))
                         }
                         
                         Spacer()

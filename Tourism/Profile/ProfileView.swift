@@ -148,9 +148,8 @@ struct ProfileView: View {
                 ZStack(alignment: .top) {
                     if isFullTitle {
                         ProfileHeaderView(profile: testProfile, imageSize: imageSize)
-                            .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)))
+                            .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)).animation(.easeInOut(duration: 0.3)))
                     } else {
-                        
                         ShortProfileHeaderView(profile: testProfile, imageSize: imageSize * 0.4)
                             .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)))
                     }
@@ -158,12 +157,6 @@ struct ProfileView: View {
                 
                 Spacer()
             }
-        }
-        .onAppear {
-            navigationController.showTitle = false
-        }
-        .onDisappear {
-            navigationController.showTitle = true
         }
         .frame(maxWidth: .infinity)
         .background(Design.Colors.back)

@@ -26,6 +26,7 @@ struct ProfileHeaderView: View {
                     EmptyView()
                 }
             }
+            .frame(width: imageSize, height: imageSize)
             .padding(.trailing, 20)
             .aspectRatio(1, contentMode: .fit)
             
