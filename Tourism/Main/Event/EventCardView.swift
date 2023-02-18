@@ -13,8 +13,11 @@ struct EventCardView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
-                Image("testImage")
+                Image("icpc")
                     .resizable()
+                    .frame(maxWidth: .greatestFiniteMagnitude)
+                    .frame(height: 200)
+                    .cornerRadius(20)
                 
                 VStack(alignment: .leading) {
                     HStack {
