@@ -31,9 +31,67 @@ struct FullScreenEventsView: View {
                         }
                         .frame(maxWidth: .infinity)
                         
-                        Text("Посмотреть на карте")
-                            .font(Design.Fonts.bold11)
-                            .foregroundColor(Design.Colors.lightGray)
+//                        Text("Посмотреть на карте")
+//                            .font(Design.Fonts.bold11)
+//                            .foregroundColor(Design.Colors.lightGray)
+                        
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Image("planeIcon")
+                                
+                                VStack(alignment: .leading) {
+                                    HStack(alignment: .bottom) {
+                                        Text("от")
+                                            .font(Design.Fonts.medium14)
+                                            .opacity(0.5)
+                                        Text("\(planePrice)₽")
+                                            .font(Design.Fonts.bold)
+                                    }
+                                    Text("авиасейлс")
+                                        .font(Design.Fonts.medium11)
+                                        .opacity(0.5)
+                                }
+                                .foregroundColor(Design.Colors.darkBlue)
+                                
+                                Spacer()
+                                
+                                Image("backIcon")
+                                    .rotationEffect(.degrees(180))
+                            }
+                            HStack {
+                                Image("trainIcon")
+                                    .padding(.trailing, 12)
+                                
+                                VStack(alignment: .leading) {
+                                    HStack(alignment: .bottom) {
+                                        Text("от")
+                                            .font(Design.Fonts.medium14)
+                                            .opacity(0.5)
+                                        Text("\(trainPrice)₽")
+                                            .font(Design.Fonts.bold)
+                                    }
+                                    Text("ржд")
+                                        .font(Design.Fonts.medium11)
+                                        .opacity(0.5)
+                                }
+                                .foregroundColor(Design.Colors.darkBlue)
+                                
+                                Spacer()
+                                
+                                Image("backIcon")
+                                    .rotationEffect(.degrees(180))
+                            }
+//                            HStack {
+//                                Image("planeIcon")
+//
+//                                VStack {
+//                                    Text("от \(planePrice)₽")
+//                                    Text("Авиасейлс")
+//                                }
+//
+//                                Image("forwardIcon")
+//                            }
+                        }
                     }
                     .padding(.vertical)
                     .padding(.horizontal, 20)
@@ -46,9 +104,9 @@ struct FullScreenEventsView: View {
                     HStack {
                         Text("Стоимость:")
                             .font(Design.Fonts.bold)
-                        
+
                         Spacer()
-                        
+
                         Text(event.price == "0" ? "Бесплатно" : "\(event.price)₽")
                             .font(Design.Fonts.bold12)
                             .foregroundColor(Design.Colors.lightViolet)
@@ -61,34 +119,34 @@ struct FullScreenEventsView: View {
                     .padding(.horizontal)
                     .defaultShadow()
                     
-                    VStack(alignment: .leading) {
-                        Text("Стоимость билетов")
-                            .font(Design.Fonts.bold)
-                        
-                        HStack {
-                            Text("Поезд:")
-                            Spacer()
-                            Text(trainPrice == 0 ? "Не удалось найти билет" : "\(trainPrice)₽")
-                                .foregroundColor(Design.Colors.lightViolet)
-                        }
-                        .font(Design.Fonts.bold12)
-                        
-                        HStack {
-                            Text("Самолет:")
-                            Spacer()
-                            Text(planePrice == 0 ? "Не удалось найти билет" : "\(planePrice)₽")
-                                .foregroundColor(Design.Colors.lightViolet)
-                        }
-                        .font(Design.Fonts.bold12)
-                        
-                    }
-                    .padding(.vertical)
-                    .padding(.horizontal, 20)
-                    .frame(maxWidth: .infinity)
-                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
-                    .padding(.bottom, 10)
-                    .padding(.horizontal)
-                    .defaultShadow()
+//                    VStack(alignment: .leading) {
+//                        Text("Стоимость билетов")
+//                            .font(Design.Fonts.bold)
+//
+//                        HStack {
+//                            Text("Поезд:")
+//                            Spacer()
+//                            Text(trainPrice == 0 ? "Не удалось найти билет" : "\(trainPrice)₽")
+//                                .foregroundColor(Design.Colors.lightViolet)
+//                        }
+//                        .font(Design.Fonts.bold12)
+//
+//                        HStack {
+//                            Text("Самолет:")
+//                            Spacer()
+//                            Text(planePrice == 0 ? "Не удалось найти билет" : "\(planePrice)₽")
+//                                .foregroundColor(Design.Colors.lightViolet)
+//                        }
+//                        .font(Design.Fonts.bold12)
+//
+//                    }
+//                    .padding(.vertical)
+//                    .padding(.horizontal, 20)
+//                    .frame(maxWidth: .infinity)
+//                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
+//                    .padding(.bottom, 10)
+//                    .padding(.horizontal)
+//                    .defaultShadow()
                     
                     VStack(alignment: .leading) {
                         Text("Описание")
