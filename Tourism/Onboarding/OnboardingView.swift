@@ -33,7 +33,7 @@ struct OnboardingView: View {
                 HStack {
                     Spacer()
                     footer(state: viewModel.state)
-                        .padding(.bottom, 32)
+
                 }
             }
         }
@@ -47,30 +47,31 @@ struct OnboardingView: View {
             VStack(alignment: .leading, spacing: 24) {
                 if state == .travel {
                     image(name: "travel")
-                    header(text: "Путешествуй по России")
+                    header(text: "Путешествуй по России", description: "Возможность посетить более 100 городов России")
                 } else if state == .meet {
                     image(name: "open")
-                    header(text: "Открывай для себя новые места")
+                    header(text: "Открывай для себя новые места", description: "Участвуя в уникальных мероприятиях")
                 } else if state == .action {
                     image(name: "action")
-                    header(text: "Действуй!")
+                    header(text: "Действуй!", description: "Подавай заявку на мероприятия и бронируй билеты")
                 }
             }
             .padding(.top, 8)
         }
     }
     
-    private func header(text: String) -> some View {
+    private func header(text: String, description: String) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Text(text)
                     .foregroundColor(.white)
                     .font(Design.Fonts.bold24)
                     .multilineTextAlignment(.leading)
+                    .padding(.trailing, 30)
                 Spacer()
             }
             
-            Text("Возможность посетить более 100 городов России и принять участие в уникальных мероприятиях.")
+            Text(description)
                 .foregroundColor(.white)
         }
         .padding(.horizontal, 16)
@@ -93,9 +94,10 @@ struct OnboardingView: View {
                 Spacer()
                 nextButton()
             }
+            .frame(height: 54)
         }
         .padding(.horizontal, 16)
-        .padding(.vertical, 30)
+        .padding(.vertical, 32)
     }
     
     private func nextButton() -> some View {
@@ -108,15 +110,24 @@ struct OnboardingView: View {
                 offset = CGFloat(index) * size.width
             }
         } label: {
-            ZStack {
-                Circle()
-                    .frame(width: 54, height: 54)
-                    .backgroundStyle(Design.Gradients.buttonGradient)
-                Image(systemName: "arrow.forward")
-                    .foregroundColor(.white)
-                    .frame(width: 30, height: 30)
+            if getIndex() != 2 {
+                ZStack {
+                    Design.Gradients.buttonGradient
+                        .frame(width: 54, height: 54)
+                        .backgroundStyle(Design.Gradients.buttonGradient)
+                    Image("arrow")
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                }
+                .cornerRadius(27)
+            } else {
+                Text("Начать")
+                    .foregroundColor(.black)
+                    .font(Design.Fonts.semiBoldMedium)
+                    .padding()
+                    .frame(width: 200, height: 44)
+                    .background(Design.Gradients.buttonGradient, in: RoundedRectangle(cornerRadius: 12))
             }
-            .cornerRadius(27)
         }
         .animation(.easeInOut, value: getIndex())
     }
