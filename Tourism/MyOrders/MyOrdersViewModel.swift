@@ -21,6 +21,9 @@ class MyOrdersViewModel: ObservableObject {
             self.livings = books.dormitories
             self.events = books.events
         }
+        withAnimation {
+        }
+        
     }
     
     func eventTap(event: Event) {

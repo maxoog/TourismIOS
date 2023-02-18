@@ -11,6 +11,7 @@ enum Design {
         public static let lightViolet: Color = .init(uiColor: .init(red: 0.645, green: 0.612, blue: 0.847, alpha: 1))
         public static let lightGreyOnboargind: Color = .init(uiColor: .init(red: 0.843, green: 0.843, blue: 0.867, alpha: 1))
         public static let red: Color = .init(uiColor: .init(red: 0.92, green: 0.20, blue: 0.14, alpha: 1))
+        public static let yellow: Color = .init(uiColor: .init(red: 1, green: 0.836, blue: 0.254, alpha: 1))
     }
     
     enum Gradients {
@@ -47,7 +48,8 @@ enum Design {
         public static let semiBoldSmall: Font = Font.custom("Manrope-SemiBold", size: 12)
         public static let common: Font = Font.custom("Manrope", size: 18)
         public static let newsSmallFont: Font = Font.custom("Manrope", size: 10)
-        public static let common14: Font = Font.custom("Manrope", size: 14)
+        public static let common24: Font = Font.custom("Manrope", size: 24)
+        public static let common16: Font = Font.custom("Manrope", size: 12)
     }
     
     enum LottieFile {

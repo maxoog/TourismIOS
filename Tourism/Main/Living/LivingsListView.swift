@@ -18,7 +18,12 @@ struct LivingsListView: View {
                     onTap(info)
                 } label: {
                     if shortCards {
-                    LivingBookCardView(cardInfo: info)
+                        BookingSnippetView(
+                            name: info.dormitoryName,
+                            status: Bool.random() ? .review : .approved,
+                            city: info.city,
+                            date: "27.04.2023"
+                        )
                     } else {
                         LivingCardView(cardInfo: info)
                     }

@@ -42,8 +42,8 @@ class MainViewModel: ObservableObject {
 }
 
 enum ListType: String, CaseIterable {
-    case eventSection = "Событие"
-    case livingSection = "Размещение"
+    case eventSection = "События"
+    case livingSection = "Размещения"
 }
 
 extension Int: Identifiable {

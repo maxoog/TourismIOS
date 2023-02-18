@@ -18,7 +18,12 @@ struct EventsListView: View {
                     onTap(info)
                 } label: {
                     if shortCards {
-                        EventBookCardView(cardInfo: info)
+                        BookingSnippetView(
+                            name: info.name,
+                            status: Bool.random() ? .review : .approved,
+                            city: info.region,
+                            date: info.timeRange.components(separatedBy: "-")[0]
+                        )
                     } else {
                         EventCardView(cardInfo: info)
                     }
