@@ -2,7 +2,14 @@ import SwiftUI
 
 struct EventsListView: View {
     let events: [Event]
+    let shortCards: Bool
     let onTap: (Event) -> Void
+    
+    init(events: [Event], shortCards: Bool = false, onTap: @escaping (Event) -> Void) {
+        self.events = events
+        self.shortCards = shortCards
+        self.onTap = onTap
+    }
     
     var body: some View {
         VStack {
@@ -10,7 +17,11 @@ struct EventsListView: View {
                 Button {
                     onTap(info)
                 } label: {
-                    EventCardView(cardInfo: info)
+                    if shortCards {
+                        EventBookCardView(cardInfo: info)
+                    } else {
+                        EventCardView(cardInfo: info)
+                    }
                 }
                 .buttonStyle(.plain)
                 .padding(.bottom)

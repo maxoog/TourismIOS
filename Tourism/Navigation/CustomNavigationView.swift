@@ -5,6 +5,7 @@ struct CustomNavigationView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            if navigationController.activeTab == .search {
                 HStack {
                     Text("Привет, Мария!")
                         .padding(.leading, 20)
@@ -21,6 +22,16 @@ struct CustomNavigationView: View {
                 .defaultShadow()
                 .offset(y: navigationController.hidden ? -200 : 0)
                 .offset(y: navigationController.activeTab == .search ? 0 : -200)
+            } else if navigationController.activeTab == .booking {
+                HStack {
+                    Text("Ваши бронирования")
+                        .padding(.leading, 16)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+            }
             
             Spacer()
             

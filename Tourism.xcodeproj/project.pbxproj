@@ -36,6 +36,9 @@
 		B10C70BF299D2D1800DC5765 /* VKAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10C70BE299D2D1800DC5765 /* VKAuthViewModel.swift */; };
 		B10C70C5299D30D500DC5765 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B10C70C4299D30D500DC5765 /* Alamofire */; };
 		B13254C729A0F6D400D47215 /* OffsetPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254C629A0F6D400D47215 /* OffsetPageTabView.swift */; };
+		B13254CA29A1520600D47215 /* SingleNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254C929A1520600D47215 /* SingleNewsView.swift */; };
+		B13254CE29A1625E00D47215 /* EventBookCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254CD29A1625E00D47215 /* EventBookCardView.swift */; };
+		B13254D029A1626800D47215 /* LivingBookCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254CF29A1626800D47215 /* LivingBookCardView.swift */; };
 		B1B1200C2990372200009A4C /* TourismApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1200B2990372200009A4C /* TourismApp.swift */; };
 		B1B120102990372300009A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1B1200F2990372300009A4C /* Assets.xcassets */; };
 		B1B120132990372300009A4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1B120122990372300009A4C /* Preview Assets.xcassets */; };
@@ -114,6 +117,9 @@
 		B10C70BC299D2D1200DC5765 /* VKAuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VKAuthView.swift; path = Tourism/VK/VKAuthView.swift; sourceTree = SOURCE_ROOT; };
 		B10C70BE299D2D1800DC5765 /* VKAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VKAuthViewModel.swift; path = Tourism/VK/VKAuthViewModel.swift; sourceTree = SOURCE_ROOT; };
 		B13254C629A0F6D400D47215 /* OffsetPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetPageTabView.swift; sourceTree = "<group>"; };
+		B13254C929A1520600D47215 /* SingleNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleNewsView.swift; sourceTree = "<group>"; };
+		B13254CD29A1625E00D47215 /* EventBookCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBookCardView.swift; sourceTree = "<group>"; };
+		B13254CF29A1626800D47215 /* LivingBookCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivingBookCardView.swift; sourceTree = "<group>"; };
 		B1B120082990372200009A4C /* Tourism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tourism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1B1200B2990372200009A4C /* TourismApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourismApp.swift; sourceTree = "<group>"; };
 		B1B1200F2990372300009A4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				5A8EC6A02996EDD6003B54DA /* LoadingRectangle.swift */,
 				5A8EC6A22996EEE1003B54DA /* StoryTimer.swift */,
 				5A8EC6A42996EF86003B54DA /* SingleStoryView.swift */,
+				B13254C929A1520600D47215 /* SingleNewsView.swift */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -235,6 +242,15 @@
 				5A655A8129A0E86200295A3E /* ShortProfileHeaderView.swift */,
 				5A655A8529A0ECB700295A3E /* AchivementCard.swift */,
 				5A655A8729A0EEB300295A3E /* ActivityRingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B13254CC29A1623B00D47215 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B13254CD29A1625E00D47215 /* EventBookCardView.swift */,
+				B13254CF29A1626800D47215 /* LivingBookCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,6 +326,7 @@
 		B1B1203A299037EA00009A4C /* MyOrders */ = {
 			isa = PBXGroup;
 			children = (
+				B13254CC29A1623B00D47215 /* Views */,
 				B1B120402990385500009A4C /* MyOrdersView.swift */,
 				B1B120422990386A00009A4C /* MyOrdersViewModel.swift */,
 			);
@@ -539,6 +556,7 @@
 				B1B120452990387A00009A4C /* ProfileView.swift in Sources */,
 				B10C70B5299D2CC100DC5765 /* Client.swift in Sources */,
 				5A655A8A29A10DEC00295A3E /* SearchService.swift in Sources */,
+				B13254CE29A1625E00D47215 /* EventBookCardView.swift in Sources */,
 				5A8EC6A52996EF86003B54DA /* SingleStoryView.swift in Sources */,
 				B1B1203F2990383400009A4C /* MainViewModel.swift in Sources */,
 				5A655A8629A0ECB700295A3E /* AchivementCard.swift in Sources */,
@@ -556,6 +574,7 @@
 				B1EBEE97299ED189001CDB90 /* Event.swift in Sources */,
 				5AB23D65299CFABF003F6DF6 /* LivingCardView.swift in Sources */,
 				B1B120432990386A00009A4C /* MyOrdersViewModel.swift in Sources */,
+				B13254CA29A1520600D47215 /* SingleNewsView.swift in Sources */,
 				B10C70BF299D2D1800DC5765 /* VKAuthViewModel.swift in Sources */,
 				B1B1203D2990382C00009A4C /* MainView.swift in Sources */,
 				5A8EC69D2996BDA9003B54DA /* NewsCarouselView.swift in Sources */,
@@ -579,6 +598,7 @@
 				B10C70B7299D2CC600DC5765 /* ProfileService.swift in Sources */,
 				5A655A7E29A00D1400295A3E /* Profile.swift in Sources */,
 				B1EBEE9F299F7F1A001CDB90 /* News.swift in Sources */,
+				B13254D029A1626800D47215 /* LivingBookCardView.swift in Sources */,
 				B1EBEE9B299ED72F001CDB90 /* BookService.swift in Sources */,
 				5A655A8829A0EEB300295A3E /* ActivityRingView.swift in Sources */,
 			);

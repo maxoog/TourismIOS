@@ -82,10 +82,6 @@ fileprivate final class AppFactory {
         return ProfileViewModel(authService: authService, profileService: profileService)
     }
     
-    func storiesViewModel() -> StoriesViewModel {
-        return StoriesViewModel()
-    }
-    
     func vkAuthViewModel(onAuthorize: @escaping () -> Void) -> VKAuthViewModel {
         VKAuthViewModel(authService: authService, onAuthorize: onAuthorize)
     }
@@ -93,11 +89,7 @@ fileprivate final class AppFactory {
     func newsViewModel(news: [News]) -> StoriesViewModel {
         return .init(news: news)
     }
-    
-    func onboardingViewModel() -> StoriesViewModel {
-        return .init()
-    }
-    
+
     private func reportAppLaunch() {
         YMMYandexMetrica.reportEvent(
             "Запуск приложения",

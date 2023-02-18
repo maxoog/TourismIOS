@@ -15,9 +15,7 @@ struct TourismApp: App {
                     if navigationController.activeTab == .search {
                         screenFactory.mainScreen()
                     } else if navigationController.activeTab == .booking {
-                        NavigationStack {
-                            screenFactory.myOrdersScreen()
-                        }
+                        screenFactory.myOrdersScreen()
                     } else {
                         screenFactory.profileScreen()
                     }
@@ -25,7 +23,7 @@ struct TourismApp: App {
                 CustomNavigationView()
             }
             .overlay {
-                if isFirstLaunch {
+                if false {
                     GeometryReader { proxy in
                         screenFactory.onboardingScreen(size: proxy.size, dismiss: {
                             isFirstLaunch = false
