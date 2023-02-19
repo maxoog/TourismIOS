@@ -8,7 +8,8 @@ struct SingleNewsView: View {
             ZStack {
                 Image(news.backgroundPhoto)
                     .resizable()
-                    .frame(width: gr.size.width, height: gr.size.height)
+                    .scaledToFill()
+                    .frame(width: gr.size.width, height: gr.size.height, alignment: .center)
                     .ignoresSafeArea()
                 
                 VStack {
@@ -16,7 +17,6 @@ struct SingleNewsView: View {
                     
                     VStack(alignment: .leading, spacing: 16) {
                         Text(news.title)
-                            .multilineTextAlignment(.leading)
                             .foregroundColor(.white)
                             .font(Design.Fonts.bold24)
                             .padding(.trailing, 50)
@@ -25,6 +25,7 @@ struct SingleNewsView: View {
                             .font(Design.Fonts.medium14)
                     }
                     .padding(.horizontal, 16)
+                    .multilineTextAlignment(.leading)
                     
                     Button {
                         

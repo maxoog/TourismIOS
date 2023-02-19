@@ -60,7 +60,6 @@
 		B1EBEE97299ED189001CDB90 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EBEE96299ED189001CDB90 /* Event.swift */; };
 		B1EBEE99299ED1AB001CDB90 /* Living.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EBEE98299ED1AB001CDB90 /* Living.swift */; };
 		B1EBEE9B299ED72F001CDB90 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EBEE9A299ED72F001CDB90 /* BookService.swift */; };
-		B1EBEE9D299EE831001CDB90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1EBEE9C299EE831001CDB90 /* GoogleService-Info.plist */; };
 		B1EBEE9F299F7F1A001CDB90 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EBEE9E299F7F1A001CDB90 /* News.swift */; };
 		B1EBEEA1299F804C001CDB90 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EBEEA0299F804C001CDB90 /* Filters.swift */; };
 		B1EBEEB4299FE0A2001CDB90 /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1EBEEAE299FE067001CDB90 /* Manrope-ExtraBold.ttf */; };
@@ -144,7 +143,6 @@
 		B1EBEE96299ED189001CDB90 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B1EBEE98299ED1AB001CDB90 /* Living.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Living.swift; sourceTree = "<group>"; };
 		B1EBEE9A299ED72F001CDB90 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
-		B1EBEE9C299EE831001CDB90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1EBEE9E299F7F1A001CDB90 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B1EBEEA0299F804C001CDB90 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		B1EBEEAD299FE061001CDB90 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 		B1B11FFF2990372100009A4C = {
 			isa = PBXGroup;
 			children = (
-				B1EBEE9C299EE831001CDB90 /* GoogleService-Info.plist */,
 				B1B1200A2990372200009A4C /* Tourism */,
 				B1B120092990372200009A4C /* Products */,
 			);
@@ -541,7 +538,6 @@
 				B1EBEEBA299FE0B0001CDB90 /* Manrope-Regular.ttf in Resources */,
 				B1EBEEB7299FE0A9001CDB90 /* Manrope-ExtraLight.ttf in Resources */,
 				B1EBEEB8299FE0AB001CDB90 /* Manrope-Medium.ttf in Resources */,
-				B1EBEE9D299EE831001CDB90 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
