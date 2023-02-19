@@ -18,24 +18,28 @@ struct MyOrdersView: View {
                     .frame(maxWidth: .greatestFiniteMagnitude)
                     .pickerStyle(.segmented)
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 16)
                 .listRowSeparator(.hidden, edges: .all)
                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 .padding(.vertical, 16)
+                .background(Design.Colors.back)
                 
                 VStack(alignment: .leading) {
                     if viewModel.activeSection == .eventSection {
                         EventsListView(events: viewModel.bookingEvents, shortCards: true,  onTap: viewModel.eventTap)
-                            .padding(.horizontal, 20)
+                            .padding(.horizontal, 16)
+                            .background(Design.Colors.back)
                     } else {
                         LivingsListView(livings: viewModel.livings, shortCards: true,  onTap: viewModel.livingTap)
-                            .padding(.horizontal, 20)
+                            .padding(.horizontal, 16)
+                            .background(Design.Colors.back)
                     }
                     Spacer(minLength: 50)
                 }
                 .listRowSeparator(.hidden, edges: .all)
                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
+            .scrollIndicators(.hidden, axes: [.vertical])
             .scrollContentBackground(.hidden)
             .listStyle(.plain)
             .padding(.top, 64)

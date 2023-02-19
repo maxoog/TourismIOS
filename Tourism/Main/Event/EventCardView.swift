@@ -54,9 +54,9 @@ struct EventCardView: View {
                     HStack {
                         if cardInfo.hasVolunteering {
                             Text("Волонтерство")
-                                .font(Design.Fonts.medium11)
+                                .font(Design.Fonts.medium14)
                                 .padding(5)
-                                .foregroundColor(Design.Colors.darkBlue)
+                                .foregroundColor(.white)
                                 .padding(.horizontal, 20)
                                 .background(Design.Colors.mainGreen)
                                 .cornerRadius(9)
@@ -72,7 +72,7 @@ struct EventCardView: View {
                     Spacer()
                     
                     Text(cardInfo.name)
-                        .font(Design.Fonts.bold16)
+                        .font(Design.Fonts.bold16_2)
                         .padding()
                 }
                 .foregroundColor(.white)

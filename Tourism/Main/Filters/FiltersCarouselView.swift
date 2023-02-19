@@ -25,7 +25,9 @@ struct FiltersCarouselView: View {
                 ForEach(filters, id: \.id) { filter in
                     Button {
                         if filter == .volunteer {
-                            valounteer.toggle()
+                            withAnimation {
+                                valounteer.toggle()
+                            }
                         }
                     } label: {
                         filterView(filter)
@@ -35,7 +37,7 @@ struct FiltersCarouselView: View {
             }
         }
         .padding(.leading, 16)
-        .padding(.vertical, 15)
+        .padding(.vertical, 10)
     }
     
     private func filterView(_ filter: SearchFilter) -> some View {
