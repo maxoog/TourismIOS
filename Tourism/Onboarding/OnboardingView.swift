@@ -81,7 +81,6 @@ struct OnboardingView: View {
         VStack {
             Image(name)
                 .frame(width: size.width)
-//                .scaleEffect(1.05)
             Spacer()
         }
     }
@@ -102,7 +101,7 @@ struct OnboardingView: View {
     
     private func nextButton() -> some View {
         Button {
-            let index = getIndex() + 1
+            let index = min(getIndex() + 1, intros.count - 1)
             
             if index == 3 {
                 viewModel.dismiss()
