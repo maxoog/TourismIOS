@@ -2,11 +2,28 @@ import Foundation
 import SwiftUI
 
 class MainViewModel: ObservableObject {
+    enum ListType: String, CaseIterable {
+        case eventSection = "События"
+        case livingSection = "Размещения"
+    }
+    
     private let navigationController = NavigationController.shared
     @Published var news: [News] = News.testArray
     @Published var activeSection: ListType = .eventSection
-    @Published var events = Event.testArray
+    @Published var events = Event.searchArray
     @Published var livings = Living.testArray
+    
+    @Published var volounteerFilter: Bool = false {
+        didSet {
+            if volounteerFilter {
+                events = Event.searchArray.filter { event in
+                    event.hasVolunteering
+                }
+            } else {
+                events = Event.searchArray
+            }
+        }
+    }
     
     @Published var showedLiving: Living?
     @Published var showedEvent: Event?
@@ -16,14 +33,12 @@ class MainViewModel: ObservableObject {
     func showStories(index: Int) {
         withAnimation(.spring()) {
             self.showStoriesFromIndex = index
-            NavigationController.shared.hidden = true
         }
     }
     
     func dismissStories() {
         withAnimation(.spring()) {
             self.showStoriesFromIndex = nil
-            NavigationController.shared.hidden = false
         }
     }
     
@@ -39,11 +54,6 @@ class MainViewModel: ObservableObject {
         showedEvent = nil
         showedLiving = nil
     }
-}
-
-enum ListType: String, CaseIterable {
-    case eventSection = "События"
-    case livingSection = "Размещения"
 }
 
 extension Int: Identifiable {

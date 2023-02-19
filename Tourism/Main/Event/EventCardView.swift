@@ -25,12 +25,15 @@ struct EventCardView: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        if Int.random(in: 0...1) != 2 {
+                        if cardInfo.hasVolunteering {
                             Text("Волонтерство")
                                 .font(Design.Fonts.medium11)
                                 .padding(5)
                                 .foregroundColor(Design.Colors.darkBlue)
-                                .background(Design.Gradients.titleGradient, in: RoundedRectangle(cornerRadius: 10))
+                                .padding(.horizontal, 20)
+                                .background(Design.Colors.mainGreen)
+                                .cornerRadius(9)
+//                                .background(Design.Gradients.titleGradient, in: RoundedRectangle(cornerRadius: 10))
                         }
                         
                         Spacer()

@@ -38,6 +38,9 @@
 		B13254C729A0F6D400D47215 /* OffsetPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254C629A0F6D400D47215 /* OffsetPageTabView.swift */; };
 		B13254CA29A1520600D47215 /* SingleNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254C929A1520600D47215 /* SingleNewsView.swift */; };
 		B13254D029A1626800D47215 /* BookingSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254CF29A1626800D47215 /* BookingSnippetView.swift */; };
+		B13254D329A1946D00D47215 /* SearchFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254D229A1946D00D47215 /* SearchFilters.swift */; };
+		B13254D529A19E1D00D47215 /* FiltersCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254D429A19E1D00D47215 /* FiltersCarouselView.swift */; };
+		B13254D729A1A20D00D47215 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13254D629A1A20D00D47215 /* ButtonModifiers.swift */; };
 		B1B1200C2990372200009A4C /* TourismApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1200B2990372200009A4C /* TourismApp.swift */; };
 		B1B120102990372300009A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1B1200F2990372300009A4C /* Assets.xcassets */; };
 		B1B120132990372300009A4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1B120122990372300009A4C /* Preview Assets.xcassets */; };
@@ -118,6 +121,9 @@
 		B13254C629A0F6D400D47215 /* OffsetPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetPageTabView.swift; sourceTree = "<group>"; };
 		B13254C929A1520600D47215 /* SingleNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleNewsView.swift; sourceTree = "<group>"; };
 		B13254CF29A1626800D47215 /* BookingSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingSnippetView.swift; sourceTree = "<group>"; };
+		B13254D229A1946D00D47215 /* SearchFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilters.swift; sourceTree = "<group>"; };
+		B13254D429A19E1D00D47215 /* FiltersCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCarouselView.swift; sourceTree = "<group>"; };
+		B13254D629A1A20D00D47215 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
 		B1B120082990372200009A4C /* Tourism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tourism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1B1200B2990372200009A4C /* TourismApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourismApp.swift; sourceTree = "<group>"; };
 		B1B1200F2990372300009A4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -252,6 +258,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B13254D129A1945600D47215 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				B13254D229A1946D00D47215 /* SearchFilters.swift */,
+				B13254D429A19E1D00D47215 /* FiltersCarouselView.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
 		B1B11FFF2990372100009A4C = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +348,7 @@
 		B1B1203B2990381200009A4C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B13254D129A1945600D47215 /* Filters */,
 				5AB23D63299CFAAD003F6DF6 /* Living */,
 				5AB23D59299CEF2F003F6DF6 /* Event */,
 				5A8EC69B2996BD86003B54DA /* Stories */,
@@ -361,6 +377,7 @@
 				5A655A7F29A02B5C00295A3E /* ViewExtension.swift */,
 				B13254C629A0F6D400D47215 /* OffsetPageTabView.swift */,
 				B1EBEEBF29A03645001CDB90 /* LikeView.swift */,
+				B13254D629A1A20D00D47215 /* ButtonModifiers.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -557,10 +574,12 @@
 				B1B1203F2990383400009A4C /* MainViewModel.swift in Sources */,
 				5A655A8629A0ECB700295A3E /* AchivementCard.swift in Sources */,
 				B1EBEE7F299E5328001CDB90 /* ProfileHeaderView.swift in Sources */,
+				B13254D529A19E1D00D47215 /* FiltersCarouselView.swift in Sources */,
 				B1B120472990388F00009A4C /* ProfileViewModel.swift in Sources */,
 				5A655A8429A0EC1B00295A3E /* Achivement.swift in Sources */,
 				B10C70BD299D2D1200DC5765 /* VKAuthView.swift in Sources */,
 				5A8EC6AB299904E6003B54DA /* ScrollViewSharingOffset.swift in Sources */,
+				B13254D329A1946D00D47215 /* SearchFilters.swift in Sources */,
 				B1EBEEC029A03645001CDB90 /* LikeView.swift in Sources */,
 				5A655A8229A0E86200295A3E /* ShortProfileHeaderView.swift in Sources */,
 				B1B1204E29903A9D00009A4C /* Design.swift in Sources */,
@@ -592,6 +611,7 @@
 				B10C70B3299D2CBB00DC5765 /* AuthService.swift in Sources */,
 				B1BDE48F29A0DE0100A831D0 /* OnboardingViewModel.swift in Sources */,
 				B10C70B7299D2CC600DC5765 /* ProfileService.swift in Sources */,
+				B13254D729A1A20D00D47215 /* ButtonModifiers.swift in Sources */,
 				5A655A7E29A00D1400295A3E /* Profile.swift in Sources */,
 				B1EBEE9F299F7F1A001CDB90 /* News.swift in Sources */,
 				B13254D029A1626800D47215 /* BookingSnippetView.swift in Sources */,

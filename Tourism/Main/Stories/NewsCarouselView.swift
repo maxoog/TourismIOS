@@ -25,39 +25,23 @@ struct NewsCarouselView: View {
                             onNewsIndexTap(index)
                         } label: {
                             ZStack {
-                                AsyncImage(url: URL(string: news[index].photo)) { phase in
-                                    switch phase {
-                                    case .empty:
-                                        ProgressView()
-                                            .frame(width: 104, height: 124)
-                                            .background(Design.Colors.lightGray)
-                                    case .success(let image):
-                                        image
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 104, height: 124)
-                                    case .failure:
-                                        Image(systemName: "photo")
-                                            .frame(width: 104, height: 124)
-                                            .background(Design.Colors.lightGray)
-                                    @unknown default:
-                                        EmptyView()
-                                    }
-                                }
-                                .frame(width: 104, height: 124)
+                                Image(news[index].previewPhoto)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 94, height: 118)
+                                    .cornerRadius(10)
                                 .overlay {
                                     ZStack(alignment: .bottom) {
-                                        LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
-                                            .frame(height: 40)
-                                        
                                         VStack(alignment: .leading) {
                                             Spacer()
                                             HStack {
                                                 Text(news[index].title)
                                                     .font(Design.Fonts.newsSmallFont)
                                                     .foregroundColor(.white)
-                                                    .padding(.bottom, 10)
+                                                    .padding(.bottom, 6)
                                                     .padding(.leading, 10)
+                                                    .padding(.trailing, 8)
+                                                    .multilineTextAlignment(.leading)
                                                 Spacer()
                                             }
                                         }
@@ -66,7 +50,10 @@ struct NewsCarouselView: View {
                             }
                             .cornerRadius(16)
                         }
+                        .shadow(color: .black.opacity(0.5), radius: 2)
+//                        .defaultShadow()
                     }
+                    
                 }
                 .padding(.horizontal, 16)
             }
