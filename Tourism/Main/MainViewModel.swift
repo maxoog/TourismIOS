@@ -32,7 +32,7 @@ class MainViewModel: ObservableObject {
     }
     
     func livingTap(living: Living) {
-        showedLiving = living
+        showedLiving = Living.bookingArray[0]
     }
     
     func dismissAllCards() {

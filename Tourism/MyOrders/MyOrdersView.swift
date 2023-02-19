@@ -25,13 +25,13 @@ struct MyOrdersView: View {
                 
                 VStack(alignment: .leading) {
                     if viewModel.activeSection == .eventSection {
-                        EventsListView(events: viewModel.events, shortCards: true,  onTap: viewModel.eventTap)
+                        EventsListView(events: viewModel.bookingEvents, shortCards: true,  onTap: viewModel.eventTap)
                             .padding(.horizontal, 20)
                     } else {
                         LivingsListView(livings: viewModel.livings, shortCards: true,  onTap: viewModel.livingTap)
                             .padding(.horizontal, 20)
                     }
-                    
+                    Spacer(minLength: 50)
                 }
                 .listRowSeparator(.hidden, edges: .all)
                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))

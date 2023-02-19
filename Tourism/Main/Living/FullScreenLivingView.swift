@@ -34,9 +34,57 @@ struct FullScreenLivingView: View {
                         }
                         .frame(maxWidth: .infinity)
                         
-                        Text("Посмотреть на карте")
-                            .font(Design.Fonts.bold11)
-                            .foregroundColor(Design.Colors.lightGray)
+//                        Text("Посмотреть на карте")
+//                            .font(Design.Fonts.bold11)
+//                            .foregroundColor(Design.Colors.lightGray)
+                        
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Image("planeIcon")
+                                
+                                VStack(alignment: .leading) {
+                                    HStack(alignment: .bottom) {
+                                        Text("от")
+                                            .font(Design.Fonts.medium14)
+                                            .opacity(0.5)
+                                        Text("\(planePrice)₽")
+                                            .font(Design.Fonts.bold)
+                                    }
+                                    Text("авиасейлс")
+                                        .font(Design.Fonts.medium11)
+                                        .opacity(0.5)
+                                }
+                                .foregroundColor(Design.Colors.darkBlue)
+                                
+                                Spacer()
+                                
+                                Image("backIcon")
+                                    .rotationEffect(.degrees(180))
+                            }
+                            HStack {
+                                Image("trainIcon")
+                                    .padding(.trailing, 12)
+                                
+                                VStack(alignment: .leading) {
+                                    HStack(alignment: .bottom) {
+                                        Text("от")
+                                            .font(Design.Fonts.medium14)
+                                            .opacity(0.5)
+                                        Text("\(trainPrice)₽")
+                                            .font(Design.Fonts.bold)
+                                    }
+                                    Text("ржд")
+                                        .font(Design.Fonts.medium11)
+                                        .opacity(0.5)
+                                }
+                                .foregroundColor(Design.Colors.darkBlue)
+                                
+                                Spacer()
+                                
+                                Image("backIcon")
+                                    .rotationEffect(.degrees(180))
+                            }
+                        }
                     }
                     .padding(.vertical)
                     .padding(.horizontal, 20)
@@ -186,7 +234,7 @@ struct FullScreenLivingView: View {
         .background(Design.Colors.back)
         .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear {
-//            service.getTrainPrice(for: TrainRequest(frm: "Москва", to: living.city, date: "18.02.2023")) { newPrice in
+//            service.getTrainPrice(for: TrainRequest(frm: "Москва", to: living.city, date: "19.02.2023")) { newPrice in
 //                trainPrice = newPrice
 //            }
 //            service.getPlanePrice(for: PlaneRequest(frm: "Москва", to: living.city)) { newPrice in

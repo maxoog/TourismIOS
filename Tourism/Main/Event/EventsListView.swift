@@ -18,11 +18,15 @@ struct EventsListView: View {
                     onTap(info)
                 } label: {
                     if shortCards {
+                        let index = events.firstIndex(where: {
+                            $0 == info
+                        })
                         BookingSnippetView(
                             name: info.name,
-                            status: Bool.random() ? .review : .approved,
+                            status: Event.bookingStatusArray[index ?? 0],
                             city: info.region,
-                            date: info.timeRange.components(separatedBy: "-")[0]
+                            date: info.timeRange.components(separatedBy: "-")[0],
+                            photo: info.photos[0]
                         )
                     } else {
                         EventCardView(cardInfo: info)
