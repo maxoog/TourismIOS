@@ -13,10 +13,37 @@ struct EventCardView: View {
         VStack(alignment: .leading) {
             ZStack {
                 ZStack(alignment: .bottom) {
-                    Image("icpc")
-                        .resizable()
-                        .frame(maxWidth: .greatestFiniteMagnitude)
-                        .frame(height: 200)
+                    
+                    AsyncImage(url: URL(string: cardInfo.photos[0])) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                                .frame(maxWidth: .greatestFiniteMagnitude)
+                                .frame(height: 200)
+                                .clipped()
+                                .background(Design.Colors.lightGray)
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .frame(maxWidth: .greatestFiniteMagnitude)
+                                .frame(height: 200)
+                                .clipped()
+                        case .failure:
+                            Image(systemName: "photo")
+                                .resizable()
+                                .frame(maxWidth: .greatestFiniteMagnitude)
+                                .frame(height: 200)
+                                .clipped()
+                                .background(Design.Colors.lightGray)
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
+                    
+//                    Image("icpc")
+//                        .resizable()
+//                        .frame(maxWidth: .greatestFiniteMagnitude)
+//                        .frame(height: 200)
                     
                     LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
                         .frame(height: 50)

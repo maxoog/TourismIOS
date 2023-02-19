@@ -119,35 +119,6 @@ struct FullScreenEventsView: View {
                     .padding(.horizontal)
                     .defaultShadow()
                     
-//                    VStack(alignment: .leading) {
-//                        Text("Стоимость билетов")
-//                            .font(Design.Fonts.bold)
-//
-//                        HStack {
-//                            Text("Поезд:")
-//                            Spacer()
-//                            Text(trainPrice == 0 ? "Не удалось найти билет" : "\(trainPrice)₽")
-//                                .foregroundColor(Design.Colors.lightViolet)
-//                        }
-//                        .font(Design.Fonts.bold12)
-//
-//                        HStack {
-//                            Text("Самолет:")
-//                            Spacer()
-//                            Text(planePrice == 0 ? "Не удалось найти билет" : "\(planePrice)₽")
-//                                .foregroundColor(Design.Colors.lightViolet)
-//                        }
-//                        .font(Design.Fonts.bold12)
-//
-//                    }
-//                    .padding(.vertical)
-//                    .padding(.horizontal, 20)
-//                    .frame(maxWidth: .infinity)
-//                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
-//                    .padding(.bottom, 10)
-//                    .padding(.horizontal)
-//                    .defaultShadow()
-                    
                     VStack(alignment: .leading) {
                         Text("Описание")
                             .font(Design.Fonts.bold)
@@ -170,17 +141,35 @@ struct FullScreenEventsView: View {
                 GeometryReader { gr in
                     ZStack(alignment: .top) {
                         TabView {
-                            ForEach(0..<count) { ind in
-                                Image("testImage")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: gr.size.width, height: 300)
-                                    .clipped()
-                                    .edgesIgnoringSafeArea(.top)
-                                    .zIndex(1)
-                                    .onAppear {
-                                        currentIndex = ind + 1
+                            ForEach(event.photos, id: \.self) { photoUrl in
+                                ZStack(alignment: .bottom) {
+                                    AsyncImage(url: URL(string: photoUrl)) { phase in
+                                        switch phase {
+                                        case .empty:
+                                            ProgressView()
+                                                .frame(width: gr.size.width, height: 300)
+                                                .clipped()
+                                                .background(Design.Colors.lightGray)
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: gr.size.width, height: 300)
+                                                .clipped()
+                                        case .failure:
+                                            Image(systemName: "photo")
+                                                .frame(width: gr.size.width, height: 300)
+                                                .clipped()
+                                                .background(Design.Colors.lightGray)
+                                        @unknown default:
+                                            EmptyView()
+                                        }
                                     }
+                                    .edgesIgnoringSafeArea(.top)
+                                    
+                                    LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
+                                        .frame(height: 100)
+                                }
                             }
                         }
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

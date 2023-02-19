@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-enum BookStatus {
-    case review
-    case approved
-    case rejected
+enum BookStatus: String {
+    case review = "На рассмотрении"
+    case approved = "Заявка одобрена"
+    case rejected = "Заявка отклонена"
 }
 
 struct BookingSnippetView: View {
@@ -24,8 +24,39 @@ struct BookingSnippetView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
-                Image(photo ?? "testImage")
-                    .resizable()
+                ZStack(alignment: .bottom) {
+                    AsyncImage(url: URL(string: photo ?? "")) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                                .frame(maxWidth: .greatestFiniteMagnitude)
+                                .frame(height: 200)
+                                .clipped()
+                                .background(Design.Colors.lightGray)
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: .greatestFiniteMagnitude)
+                                .frame(height: 200)
+                                .clipped()
+                        case .failure:
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: .greatestFiniteMagnitude)
+                                .frame(height: 200)
+                                .clipped()
+                                .background(Design.Colors.lightGray)
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
+                    
+                    LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
+                        .frame(height: 100)
+                }
+                .cornerRadius(20)
                 
                 VStack(alignment: .leading) {
                     HStack {
@@ -33,13 +64,7 @@ struct BookingSnippetView: View {
                         
                         Spacer()
                         
-                        Button {
-                            
-                        } label: {
-                            Image("points")
-                        }
-                        .contentShape(Circle())
-
+                        LikeView(isLiked: false, color: .white)
                     }
                     .padding()
                     
@@ -65,20 +90,24 @@ struct BookingSnippetView: View {
                 Text(date)
                     .font(Design.Fonts.medium14)
             }
-            .padding(.horizontal)
-            .padding(.bottom, 16)
-            .padding(.top, 8)
+            .padding()
         }
         .background(in: RoundedRectangle(cornerRadius: 20))
         .defaultShadow()
     }
     
+    let statusColor: [BookStatus : Color] = [
+        .rejected : .red,
+        .review : .yellow,
+        .approved : .green
+    ]
+    
     var statusView: some View {
         HStack {
             Circle()
                 .frame(width: 7, height: 7)
-                .foregroundColor(status == .review ? Design.Colors.yellow : Design.Colors.mainGreen)
-            Text(status == .review ? "На рассмотрении" : "Подтверждено")
+                .foregroundColor(statusColor[status])
+            Text(status.rawValue)
                 .font(Design.Fonts.common16)
                 .foregroundColor(.black)
         }
