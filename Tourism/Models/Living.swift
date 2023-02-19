@@ -93,14 +93,14 @@ struct Living: Decodable, Identifiable {
     ]
 }
 
-struct Service: Decodable {
+struct Service: Decodable, Hashable {
     let name: String
     let description: String
     let price: String
 }
 
 
-struct Room: Decodable {
+struct Room: Decodable, Hashable {
     let type: String
     let amount: String
     let price: String

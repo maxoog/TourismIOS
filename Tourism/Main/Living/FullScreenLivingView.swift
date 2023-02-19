@@ -1,4 +1,5 @@
 import SwiftUI
+import MapKit
 
 struct FullScreenLivingView: View {
     let living: Living
@@ -10,6 +11,10 @@ struct FullScreenLivingView: View {
     @State var currentIndex: Int = 1
     @State var showSharingSheet: Bool = false
     
+    @State var showMap: Bool = false
+    @State private var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @State var location: MapMarker = MapMarker(coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), tint: .red)
+    
     let count: Int = 4
     
     var body: some View {
@@ -18,118 +23,155 @@ struct FullScreenLivingView: View {
                 Spacer(minLength: 320)
                 
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Image("geoIcon")
-                            
-                            VStack {
-                                Text("\(living.city)")
-                                    .font(Design.Fonts.medium14)
-                                Text("\(living.street), \(living.houseNumber)")
-                                    .font(Design.Fonts.medium14)
-                                    .foregroundColor(Design.Colors.lightGray)
-                            }
-                            
-                            Spacer()
+                    Button {
+                        withAnimation(.spring()) {
+                            showMap = true
+                            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(living.coordinates[0]) ?? 0, longitude: Double(living.coordinates[1]) ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+                            location = MapMarker(coordinate: CLLocationCoordinate2D(latitude: Double(living.coordinates[0]) ?? 0, longitude: Double(living.coordinates[1]) ?? 0), tint: .red)
                         }
-                        .frame(maxWidth: .infinity)
-                        
-//                        Text("Посмотреть на карте")
-//                            .font(Design.Fonts.bold11)
-//                            .foregroundColor(Design.Colors.lightGray)
-                        
+                    } label: {
                         VStack(alignment: .leading) {
                             HStack {
-                                Image("planeIcon")
+                                Image("geoIcon")
+                                    .padding(.trailing)
                                 
                                 VStack(alignment: .leading) {
-                                    HStack(alignment: .bottom) {
-                                        Text("от")
-                                            .font(Design.Fonts.medium14)
-                                            .opacity(0.5)
-                                        Text("\(planePrice)₽")
-                                            .font(Design.Fonts.bold)
-                                    }
-                                    Text("авиасейлс")
-                                        .font(Design.Fonts.medium11)
-                                        .opacity(0.5)
+                                    Text("\(living.city)")
+                                        .font(Design.Fonts.medium14)
+                                        .foregroundColor(.black)
+                                    Text("\(living.street), \(living.houseNumber)")
+                                        .font(Design.Fonts.medium14)
+                                        .foregroundColor(Design.Colors.lightGray)
                                 }
-                                .foregroundColor(Design.Colors.darkBlue)
                                 
                                 Spacer()
-                                
-                                Image("backIcon")
-                                    .rotationEffect(.degrees(180))
                             }
-                            HStack {
-                                Image("trainIcon")
-                                    .padding(.trailing, 12)
-                                
-                                VStack(alignment: .leading) {
-                                    HStack(alignment: .bottom) {
-                                        Text("от")
-                                            .font(Design.Fonts.medium14)
+                            .frame(maxWidth: .infinity)
+                            
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Image("planeIcon")
+                                    
+                                    VStack(alignment: .leading) {
+                                        HStack(alignment: .bottom) {
+                                            Text("от")
+                                                .font(Design.Fonts.medium14)
+                                                .opacity(0.5)
+                                            Text("\(planePrice)₽")
+                                                .font(Design.Fonts.bold)
+                                        }
+                                        Text("авиасейлс")
+                                            .font(Design.Fonts.medium11)
                                             .opacity(0.5)
-                                        Text("\(trainPrice)₽")
-                                            .font(Design.Fonts.bold)
                                     }
-                                    Text("ржд")
-                                        .font(Design.Fonts.medium11)
-                                        .opacity(0.5)
+                                    .foregroundColor(Design.Colors.darkBlue)
+                                    
+                                    Spacer()
+                                    
+                                    Image("backIcon")
+                                        .rotationEffect(.degrees(180))
                                 }
-                                .foregroundColor(Design.Colors.darkBlue)
-                                
-                                Spacer()
-                                
-                                Image("backIcon")
-                                    .rotationEffect(.degrees(180))
+                                HStack {
+                                    Image("trainIcon")
+                                        .padding(.trailing, 12)
+                                    
+                                    VStack(alignment: .leading) {
+                                        HStack(alignment: .bottom) {
+                                            Text("от")
+                                                .font(Design.Fonts.medium14)
+                                                .opacity(0.5)
+                                            Text("\(trainPrice)₽")
+                                                .font(Design.Fonts.bold)
+                                        }
+                                        Text("ржд")
+                                            .font(Design.Fonts.medium11)
+                                            .opacity(0.5)
+                                    }
+                                    .foregroundColor(Design.Colors.darkBlue)
+                                    
+                                    Spacer()
+                                    
+                                    Image("backIcon")
+                                        .rotationEffect(.degrees(180))
+                                }
                             }
+                            
+                            Text("Посмотреть на карте")
+                                .font(Design.Fonts.bold11)
+                                .foregroundColor(Design.Colors.lightGray)
                         }
+                        .padding(.vertical)
+                        .padding(.horizontal, 20)
+                        .frame(maxWidth: .infinity)
+                        .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                        .padding(.bottom, 10)
+                        .padding(.horizontal)
+                        .defaultShadow()
                     }
-                    .padding(.vertical)
-                    .padding(.horizontal, 20)
-                    .frame(maxWidth: .infinity)
-                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
-                    .padding(.bottom, 10)
-                    .padding(.horizontal)
-                    .defaultShadow()
                     
                     VStack(alignment: .leading) {
-                        Text("Стоимость билетов")
-                            .font(Design.Fonts.bold)
-                        
-                        HStack {
-                            Text("Поезд:")
-                            Spacer()
-                            Text(trainPrice == 0 ? "Не удалось найти билет" : "\(trainPrice)₽")
-                                .foregroundColor(Design.Colors.lightViolet)
-                        }
-                        .font(Design.Fonts.bold12)
-                        
-                        HStack {
-                            Text("Самолет:")
-                            Spacer()
-                            Text(planePrice == 0 ? "Не удалось найти билет" : "\(planePrice)₽")
-                                .foregroundColor(Design.Colors.lightViolet)
-                        }
-                        .font(Design.Fonts.bold12)
-                        
-                    }
-                    .padding(.vertical)
-                    .padding(.horizontal, 20)
-                    .frame(maxWidth: .infinity)
-                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
-                    .padding(.bottom, 10)
-                    .padding(.horizontal)
-                    .defaultShadow()
-                    
-                    VStack(alignment: .leading) {
-                        Text("Описание")
+                        Text("Комнаты")
                             .font(Design.Fonts.bold)
                             .padding(.bottom, 10)
-//                        Text(living.description)
-//                            .font(Design.Fonts.medium14)
-//                            .foregroundColor(.black.opacity(0.6))
+                        
+                        ForEach(living.rooms, id: \.self) { item in
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("\(item.price)₽")
+                                        .padding(.trailing)
+                                    
+                                    Spacer()
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(item.type)
+                                            .font(Design.Fonts.bold14)
+                                            .padding(.bottom, 5)
+                                        Text(item.description)
+                                            .font(Design.Fonts.bold11)
+                                            .foregroundColor(Design.Colors.lightGray)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Design.Colors.lightViolet.opacity(0.1), in: RoundedRectangle(cornerRadius: 20))
+                        }
+                    }
+                    .padding(.vertical)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
+                    .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                    .padding(.bottom, 10)
+                    .padding(.horizontal)
+                    .defaultShadow()
+                    
+                    VStack(alignment: .leading) {
+                        Text("Условия")
+                            .font(Design.Fonts.bold)
+                            .padding(.bottom, 10)
+                        
+                        ForEach(living.services, id: \.self) { item in
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("\(item.price)₽")
+                                        .padding(.trailing)
+                                    
+                                    VStack {
+                                        Text(item.name)
+                                            .font(Design.Fonts.bold14)
+                                            .padding(.bottom, 5)
+                                        Text(item.description)
+                                            .font(Design.Fonts.bold11)
+                                            .foregroundColor(Design.Colors.lightGray)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Design.Colors.lightViolet.opacity(0.1), in: RoundedRectangle(cornerRadius: 20))
+                        }
                     }
                     .padding(.vertical)
                     .padding(.horizontal, 20)
@@ -145,17 +187,35 @@ struct FullScreenLivingView: View {
                 GeometryReader { gr in
                     ZStack(alignment: .top) {
                         TabView {
-                            ForEach(0..<count) { ind in
-                                Image("testImage")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: gr.size.width, height: 300)
-                                    .clipped()
-                                    .edgesIgnoringSafeArea(.top)
-                                    .zIndex(1)
-                                    .onAppear {
-                                        currentIndex = ind + 1
+                            ForEach(living.photo, id: \.self) { photoUrl in
+                                ZStack(alignment: .bottom) {
+                                    AsyncImage(url: URL(string: photoUrl)) { phase in
+                                        switch phase {
+                                        case .empty:
+                                            ProgressView()
+                                                .frame(width: gr.size.width, height: 300)
+                                                .clipped()
+                                                .background(Design.Colors.lightGray)
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: gr.size.width, height: 300)
+                                                .clipped()
+                                        case .failure:
+                                            Image(systemName: "photo")
+                                                .frame(width: gr.size.width, height: 300)
+                                                .clipped()
+                                                .background(Design.Colors.lightGray)
+                                        @unknown default:
+                                            EmptyView()
+                                        }
                                     }
+                                    .edgesIgnoringSafeArea(.top)
+                                    
+                                    LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
+                                        .frame(height: 100)
+                                }
                             }
                         }
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -181,7 +241,7 @@ struct FullScreenLivingView: View {
                                 
                                 Spacer()
                                 
-                                ShareLink(item: "http://google.com") {
+                                ShareLink(item: "https://xn--d1agcrrehbhc.xn--p1ai/events/WkC61h8Pj1") {
                                     Image("shareIcon")
                                         .padding(5)
                                         .background(.white, in: Circle())
@@ -233,7 +293,37 @@ struct FullScreenLivingView: View {
         }
         .background(Design.Colors.back)
         .edgesIgnoringSafeArea([.top, .bottom])
+        .fullScreenCover(isPresented: $showMap, content: {
+            ZStack {
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        Button {
+                            showMap = false
+                        } label: {
+                            Image(systemName: "xmark")
+                                .padding()
+                                .background(.ultraThinMaterial, in: Circle())
+                                .padding()
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    
+                    Spacer()
+                }
+                .padding(.top, 60)
+                .zIndex(2)
+                
+                Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: [1]) { _ in
+                    location
+                }
+                    .zIndex(1)
+            }
+            .ignoresSafeArea()
+        })
         .onAppear {
+            print(Double(living.coordinates[0]) ?? 0)
 //            service.getTrainPrice(for: TrainRequest(frm: "Москва", to: living.city, date: "19.02.2023")) { newPrice in
 //                trainPrice = newPrice
 //            }

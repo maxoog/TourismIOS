@@ -195,7 +195,7 @@ struct FullScreenEventsView: View {
                                 
                                 Spacer()
                                 
-                                ShareLink(item: "http://google.com") {
+                                ShareLink(item: "https://xn--d1agcrrehbhc.xn--p1ai/events/WkC61h8Pj1") {
                                     Image("shareIcon")
                                         .padding(5)
                                         .background(.white, in: Circle())
