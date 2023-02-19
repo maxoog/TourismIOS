@@ -72,17 +72,6 @@ struct SingleStoryView: View {
                         }
                     }
                     .padding(.top, 40)
-//                    .highPriorityGesture(
-//                        LongPressGesture(minimumDuration: 1)
-//                            .updating($isDetectingLongPress, body: { currentState, gestureState, transaction in
-//                                timer.pause()
-//                                gestureState = currentState
-//                                transaction.animation = Animation.easeIn(duration: 2.0)
-//                            })
-//                            .onEnded({ _ in
-//                                timer.start()
-//                            })
-//                    )
                 }
                 .background(Color.black)
                 .cornerRadius(10)

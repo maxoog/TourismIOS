@@ -33,25 +33,25 @@ struct News {
                 url: "https://студтуризм.рф/news/w81OeDIGBu",
                 color: .red,
                 previewPhoto: "moscow",
-                backgroundPhoto: "pushkinCard"
+                backgroundPhoto: "moscow2"
             ),
             News(
                 title: "Встречайте Омск!",
-                description: "Город в Сибири, который может похвастаться статусом самого зелёного города в России",
+                description: "Город в Сибири, который может похвастаться статусом самого зелёного города в России. Что скрывает этот белокаменный кремль?",
                 photo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpuppetmo.ru%2Fnews%2Fpushkinskaja-karta%2F&psig=AOvVaw1PLoBE-5qGjSkjq0YWzdPK&ust=1676754104226000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLiflvi5nf0CFQAAAAAdAAAAABAJ",
                 url: "ya.ru",
                 color: .red,
                 previewPhoto: "omsk",
-                backgroundPhoto: "pushkinCard"
+                backgroundPhoto: "omsk"
             ),
             News(
                 title: "Отдых в глубинке",
-                description: "Рассказываем, как отлично провести зимние каникулы, не потратив при этом состояние",
+                description: "Рассказываем, как отлично провести зимние каникулы, не потратив при этом состояние. Вологда, Рязань - города, который каждый должен посетить.",
                 photo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fgb.ru%2Fposts%2Fdo_a_hackaton&psig=AOvVaw22jOzVywY54rzIedgoBYXb&ust=1676754600940000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPCR9uS7nf0CFQAAAAAdAAAAABAM",
                 url: "ya.ru",
                 color: .red,
                 previewPhoto: "fourthPreview",
-                backgroundPhoto: "pushkinCard"
+                backgroundPhoto: "fourthPreview"
             )
 //            News(
 //                title: "Лекция на пляже",
