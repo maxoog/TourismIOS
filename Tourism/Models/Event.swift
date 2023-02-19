@@ -100,6 +100,18 @@ struct Event: Identifiable, Decodable, Equatable {
     
     static let searchArray: [Event] = [
         .init(
+            id: "1",
+            type: "Культурно-познавательные",
+            name: "Путешествие по Карелии",
+            timeRange: "02.02.2023 - 03.03.2023",
+            price: "3000-4000",
+            description: "Посещение Центра боевой славы и Мелекесского гарнизона по предварительной договоренности",
+            region: "Ленинградская Область",
+            photos: ["https://tvtogliatti24.ru/userfiles/news/big/tur_1656963011.jpg"],
+            universityName: "Поволжский казачий институт управления и пищевых технологий (филиал) ФГБОУ ВО МГУТУ им. К.Г. Разумовского (Первый казачий университет",
+            hasVolunteering: false
+        ),
+        .init(
             id: "0",
             type: "Культурно-познавательные",
             name: "Полуфинал ICPC в Санкт-Петербурге",
@@ -112,28 +124,16 @@ struct Event: Identifiable, Decodable, Equatable {
             hasVolunteering: true
         ),
         .init(
-            id: "1",
-            type: "Культурно-познавательные",
-            name: "Полуфинал ICPC в Санкт-Петербурге",
-            timeRange: "02.17.2023 - 02.17.2023",
-            price: "0",
-            description: "Посещение Центра боевой славы и Мелекесского гарнизона по предварительной договоренности",
-            region: "Санкт-Петербург",
-            photos: ["some_url"],
-            universityName: "Поволжский казачий институт управления и пищевых технологий (филиал) ФГБОУ ВО МГУТУ им. К.Г. Разумовского (Первый казачий университет",
-            hasVolunteering: true
-        ),
-        .init(
             id: "2",
             type: "Культурно-познавательные",
-            name: "Полуфинал ICPC в Санкт-Петербурге",
-            timeRange: "02.17.2023 - 02.17.2023",
-            price: "0",
+            name: "Летний лагерь в Крыму!",
+            timeRange: "02.06.2023 - 20.06.2023",
+            price: "11000",
             description: "Посещение Центра боевой славы и Мелекесского гарнизона по предварительной договоренности",
-            region: "Санкт-Петербург",
-            photos: ["some_url"],
+            region: "Симферополь",
+            photos: ["https://pobedarf.ru/wp-content/uploads/2021/07/5d09cb4b09213.jpg"],
             universityName: "Поволжский казачий институт управления и пищевых технологий (филиал) ФГБОУ ВО МГУТУ им. К.Г. Разумовского (Первый казачий университет",
-            hasVolunteering: false
+            hasVolunteering: true
         ),
     ]
 }
