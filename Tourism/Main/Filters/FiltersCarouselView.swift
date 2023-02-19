@@ -20,24 +20,27 @@ struct FiltersCarouselView: View {
         }
         
         
-        return ScrollView([.horizontal], showsIndicators: false) {
-            HStack(spacing: 10) {
-                ForEach(filters, id: \.id) { filter in
-                    Button {
-                        if filter == .volunteer {
-                            withAnimation {
-                                valounteer.toggle()
+        return
+            ScrollView([.horizontal], showsIndicators: false) {
+                HStack {
+                    Spacer(minLength: 16)
+                    ForEach(filters, id: \.id) { filter in
+                        Button {
+                            if filter == .volunteer {
+                                withAnimation {
+                                    valounteer.toggle()
+                                }
                             }
+                        } label: {
+                            filterView(filter)
                         }
-                    } label: {
-                        filterView(filter)
+                        .buttonStyle(GrowingButton())
                     }
-                    .buttonStyle(GrowingButton())
+                    Spacer(minLength: 16)
                 }
             }
-        }
-        .padding(.leading, 16)
-        .padding(.vertical, 10)
+            .padding(.vertical, 10)
+            .defaultShadow()
     }
     
     private func filterView(_ filter: SearchFilter) -> some View {

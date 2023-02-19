@@ -19,7 +19,9 @@ struct NewsCarouselView: View {
             header
             
             ScrollView([.horizontal], showsIndicators: false) {
-                HStack(spacing: 8) {
+                HStack {
+                    Spacer(minLength: 16)
+                    
                     ForEach(news.indices) { index in
                         Button {
                             onNewsIndexTap(index)
@@ -50,12 +52,12 @@ struct NewsCarouselView: View {
                             }
                             .cornerRadius(16)
                         }
-                        .shadow(color: .black.opacity(0.5), radius: 2)
                     }
+                    Spacer(minLength: 16)
                 }
             }
             .padding(.vertical, 13)
-            .padding(.leading, 16)
+            .shadow(color: .black.opacity(0.5), radius: 2)
         }
     }
 }

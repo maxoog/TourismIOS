@@ -121,6 +121,8 @@ struct FullScreenEventsView: View {
                     .padding(.horizontal)
                     .defaultShadow()
                 }
+                
+                Spacer(minLength: 120)
             }
             
             VStack {

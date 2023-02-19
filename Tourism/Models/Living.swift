@@ -89,7 +89,77 @@ struct Living: Decodable, Identifiable {
                     "https://stud-files.sabir.pro/files/oRKBZjbq6W-1861d3982724b322c6c2d3659093e8dc3fd348236a5f245a6be7f0e89766bd9a.jpg",
                     "https://stud-files.sabir.pro/files/oRKBZjbq6W-e1d06fc74f08883d69b256093f3726af59bd26c520682e03e0b89b8c55997fe3.jpg"
                 ])
-            ])
+            ]),
+        Living(
+            id: "2",
+            dormitoryName: "База учебных практик «Озеро Красилово»",
+            city: "Барнаул",
+            universityName: "ФГБОУ ВО Восточно-Сибирский государственный институт культуры",
+            street: "Новый Энхалук",
+            houseNumber: "1",
+            meal: "Полный пансион",
+            minDays: 3,
+            maxDays: 15,
+            coordinates: ["52.484056", "106.967431"],
+            photo: [
+                "https://stud-files.sabir.pro/files/RSiDUfWDkz-8ce9a3769c9f55b1aac0501475e37e0f8ba76ca1dbf5629eb1f142a69f1d0786.jpg",
+                "https://stud-files.sabir.pro/files/oRKBZjbq6W-442a194702fce196473a5c9963d1739e9dd77bdcf2017addacaa58c2950675f0.jpg",
+                "https://stud-files.sabir.pro/files/oRKBZjbq6W-2f13e3e052634f68799083705974ae83e8339912216a164fabbb02a5c00ebf68.jpg",
+                "https://stud-files.sabir.pro/files/oRKBZjbq6W-ef74f88fbd3d110d372fe369daa195b6e912b393127915e0b0679aad9eaac9fd.jpg",
+                "https://stud-files.sabir.pro/files/oRKBZjbq6W-1861d3982724b322c6c2d3659093e8dc3fd348236a5f245a6be7f0e89766bd9a.jpg"
+            ],
+            priceFrom: 1000,
+            priceTo: 2000,
+            contacts: Contacts(name: "Нетребина Людмила Александровна", email: "info@vsgaki.ru", phoneNumber: "+79915413322"),
+            requiredUniDocs: "Официальное письмо вуза, договор об оплате, список студентов",
+            requiredStudentDocs: "Справка с места учебы, студенческий билет, паспорт, сертификат о вакцинации, квитанция об оплате",
+            services: [
+                Service(name: "Спортинвентарь", description: "Мячи, бильярд, стоимость за 1 час", price: "200"),
+                Service(name: "Баня, душ", description: "Стоимость за 1 чел., 1 час", price: "200"),
+                Service(name: "Проектор, экран", description: "Для проведения мероприятий в конференц зале, стоимость за 1 час", price: "36"),
+            ],
+            rooms: [
+                Room(type: "2-х местный номер", amount: "1", price: "1600", description: "Размещение в коттеджах (2 и 4 местные номера), туалет благоустроенный (общий), 3 х разовое питание, баня", photos: [
+                    "https://stud-files.sabir.pro/files/oRKBZjbq6W-3c9fb5898957987fcc3d73f54c4f0910597fb4860dba90a46f9833738703b5dc.jpg",
+                    "https://stud-files.sabir.pro/files/oRKBZjbq6W-1861d3982724b322c6c2d3659093e8dc3fd348236a5f245a6be7f0e89766bd9a.jpg",
+                    "https://stud-files.sabir.pro/files/oRKBZjbq6W-e1d06fc74f08883d69b256093f3726af59bd26c520682e03e0b89b8c55997fe3.jpg"
+                ])
+            ]),
+        Living(
+            id: "3",
+            dormitoryName: "Гостиница \"МГИМО отель\"",
+            city: "Одинцово",
+            universityName: "ФГБОУ ВО Восточно-Сибирский государственный институт культуры",
+            street: "Новый Энхалук",
+            houseNumber: "1",
+            meal: "Полный пансион",
+            minDays: 3,
+            maxDays: 15,
+            coordinates: ["52.484056", "106.967431"],
+            photo: [
+                "https://stud-files.sabir.pro/files/JCNkwsXiNo-3b98fed32a42ba5861163091b4fd9a96e2863fdb177ba37c3f35dcd49524f20c.jpg",
+                "https://stud-files.sabir.pro/files/oRKBZjbq6W-442a194702fce196473a5c9963d1739e9dd77bdcf2017addacaa58c2950675f0.jpg",
+                "https://stud-files.sabir.pro/files/oRKBZjbq6W-2f13e3e052634f68799083705974ae83e8339912216a164fabbb02a5c00ebf68.jpg",
+                "https://stud-files.sabir.pro/files/oRKBZjbq6W-ef74f88fbd3d110d372fe369daa195b6e912b393127915e0b0679aad9eaac9fd.jpg",
+                "https://stud-files.sabir.pro/files/oRKBZjbq6W-1861d3982724b322c6c2d3659093e8dc3fd348236a5f245a6be7f0e89766bd9a.jpg"
+            ],
+            priceFrom: 600,
+            priceTo: 1400,
+            contacts: Contacts(name: "Нетребина Людмила Александровна", email: "info@vsgaki.ru", phoneNumber: "+79915413322"),
+            requiredUniDocs: "Официальное письмо вуза, договор об оплате, список студентов",
+            requiredStudentDocs: "Справка с места учебы, студенческий билет, паспорт, сертификат о вакцинации, квитанция об оплате",
+            services: [
+                Service(name: "Спортинвентарь", description: "Мячи, бильярд, стоимость за 1 час", price: "200"),
+                Service(name: "Баня, душ", description: "Стоимость за 1 чел., 1 час", price: "200"),
+                Service(name: "Проектор, экран", description: "Для проведения мероприятий в конференц зале, стоимость за 1 час", price: "36"),
+            ],
+            rooms: [
+                Room(type: "2-х местный номер", amount: "1", price: "1600", description: "Размещение в коттеджах (2 и 4 местные номера), туалет благоустроенный (общий), 3 х разовое питание, баня", photos: [
+                    "https://stud-files.sabir.pro/files/oRKBZjbq6W-3c9fb5898957987fcc3d73f54c4f0910597fb4860dba90a46f9833738703b5dc.jpg",
+                    "https://stud-files.sabir.pro/files/oRKBZjbq6W-1861d3982724b322c6c2d3659093e8dc3fd348236a5f245a6be7f0e89766bd9a.jpg",
+                    "https://stud-files.sabir.pro/files/oRKBZjbq6W-e1d06fc74f08883d69b256093f3726af59bd26c520682e03e0b89b8c55997fe3.jpg"
+                ])
+            ]),
     ]
 }
 
