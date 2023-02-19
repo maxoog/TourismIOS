@@ -25,7 +25,7 @@ class StoryTimer: ObservableObject {
             // handle last story
             if Int(newProgress) >= self.itemsCount {
                 (self.dismiss ?? {})()
-                newProgress = 0
+                newProgress = Double(self.itemsCount - 1)
             }
             
             self.progress = newProgress
@@ -41,7 +41,7 @@ class StoryTimer: ObservableObject {
         var newProgress = Int(progress) + 1
         // handle last story
         if Int(newProgress) >= itemsCount {
-            newProgress = 0
+            newProgress = itemsCount - 1
             (dismiss ?? {})()
         }
         
