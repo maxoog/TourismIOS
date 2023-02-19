@@ -2,7 +2,7 @@ import SwiftUI
 
 enum Design {
     enum Colors {
-        public static let back: Color = .init(uiColor: .init(red: 0.96, green: 0.98, blue: 0.99, alpha: 1))
+        public static let back: Color = .init(uiColor: .init(red: 0.91, green: 0.94, blue: 0.95, alpha: 1))
         public static let mainText: Color = .init(uiColor: .init(red: 0.008, green: 0.149, blue: 0.42, alpha: 1))
         public static let pickerBg: Color = .init(uiColor: .init(red: 0.429, green: 0.572, blue: 1, alpha: 0.4))
         public static let darkBlue: Color = .init(uiColor: .init(red: 0.008, green: 0.149, blue: 0.42, alpha: 1))
@@ -12,6 +12,7 @@ enum Design {
         public static let lightGreyOnboargind: Color = .init(uiColor: .init(red: 0.843, green: 0.843, blue: 0.867, alpha: 1))
         public static let red: Color = .init(uiColor: .init(red: 0.92, green: 0.20, blue: 0.14, alpha: 1))
         public static let yellow: Color = .init(uiColor: .init(red: 1, green: 0.836, blue: 0.254, alpha: 1))
+        public static let mainBack: Color = .init(uiColor: .init(red: 0.517, green: 0.517, blue: 0.517, alpha: 1))
     }
     
     enum Gradients {
@@ -47,7 +48,7 @@ enum Design {
         public static let semiBoldMedium: Font = Font.custom("Manrope-SemiBold", size: 14)
         public static let semiBoldSmall: Font = Font.custom("Manrope-SemiBold", size: 12)
         public static let common: Font = Font.custom("Manrope", size: 18)
-        public static let newsSmallFont: Font = Font.custom("Manrope", size: 10)
+        public static let newsSmallFont: Font = Font.custom("Manrope-SemiBold", size: 10)
         public static let common24: Font = Font.custom("Manrope", size: 24)
         public static let common16: Font = Font.custom("Manrope", size: 12)
     }

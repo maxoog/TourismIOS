@@ -14,7 +14,7 @@ struct MainView: View {
                 // MARK: - Toggle search type
                 VStack(alignment: .leading) {
                     Picker("", selection: $viewModel.activeSection) {
-                        ForEach(ListType.allCases, id: \.self) { item in
+                        ForEach(MainViewModel.ListType.allCases, id: \.self) { item in
                             Text(item.rawValue)
                         }
                     }
@@ -23,28 +23,7 @@ struct MainView: View {
                 .padding(.top, 15)
                 .padding(.horizontal, 20)
                 
-                // MARK: - Filters
-                Button {
-                    // shows new screen with filters
-                } label: {
-                    HStack {
-                        Text("Фильтры")
-                            .padding(.leading)
-                            .foregroundColor(Design.Colors.darkBlue)
-                        
-                        Spacer()
-                        
-                        Image("filters")
-                            .padding(.trailing)
-                    }
-                    .padding(.vertical, 15)
-                    .padding(.horizontal, 20)
-                    .background(in: RoundedRectangle(cornerRadius: 20))
-                    .shadow(color: .black.opacity(0.1), radius: 10)
-                }
-                .padding(.vertical)
-                .padding(.horizontal, 20)
-                .frame(maxWidth: .infinity)
+                FiltersCarouselView(section: viewModel.activeSection, valounteer: $viewModel.volounteerFilter)
                 
                 // MARK: - Avaliable cards
                 VStack(alignment: .leading) {
@@ -88,20 +67,20 @@ struct MainView: View {
         .fullScreenCover(item: $viewModel.showedLiving, onDismiss: viewModel.dismissAllCards) { living in
             FullScreenLivingView(living: living)
         }
-        .overlay {
-            if let index = viewModel.showStoriesFromIndex {
-                ZStack {
-                    Color.black
-                        .ignoresSafeArea()
-                    screenFactory.newsScreen(
-                        news: viewModel.news,
-                        firstNewsIndex: index,
-                        dismiss: viewModel.dismissStories
-                    )
-                }
-                .transition(.opacity.animation(.easeInOut(duration: 0.2)))
+        .fullScreenCover(item: $viewModel.showStoriesFromIndex, content: { index in
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
+                screenFactory.newsScreen(
+                    news: viewModel.news,
+                    firstNewsIndex: index,
+                    dismiss: viewModel.dismissStories
+                )
             }
-        }
+            .transition(.opacity.animation(.easeInOut(duration: 0.2)))
+            .ignoresSafeArea()
+        })
+
         .background(Design.Colors.back)
         .onAppear {
             UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white

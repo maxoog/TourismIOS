@@ -10,6 +10,7 @@ import SwiftUI
 enum BookStatus {
     case review
     case approved
+    case rejected
 }
 
 struct BookingSnippetView: View {

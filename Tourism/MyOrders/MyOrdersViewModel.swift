@@ -6,7 +6,7 @@ class MyOrdersViewModel: ObservableObject {
     
     @Published var events: [Event] = Event.testArray
     @Published var livings: [Living] = Living.testArray
-    @Published var activeSection: ListType = .eventSection
+    @Published var activeSection: MainViewModel.ListType = .eventSection
     @Published var showedLiving: Living?
     @Published var showedEvent: Event?
     

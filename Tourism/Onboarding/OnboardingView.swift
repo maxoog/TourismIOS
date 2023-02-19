@@ -47,13 +47,13 @@ struct OnboardingView: View {
             VStack(alignment: .leading, spacing: 24) {
                 if state == .travel {
                     image(name: "travel")
-                    header(text: "Путешествуй по России", description: "Возможность посетить более 100 городов России")
+                    header(text: "Выбирай события", description: "Подавай заявку на экскурсии, лекции, хакатоны, конференции, волонтёрские проекты - найдётся событие на любой вкус")
                 } else if state == .meet {
                     image(name: "open")
-                    header(text: "Открывай для себя новые места", description: "Участвуя в уникальных мероприятиях")
+                    header(text: "Бронируй жильё", description: "Живи по доступным ценам на море или в горах, в городе или на базе отдыха, с друзьями или без, на день или на неделю. Отслеживай в реальном времени бронирования во вкладке “Мои бронирования” и получай push-уведомление о смене его статуса")
                 } else if state == .action {
                     image(name: "action")
-                    header(text: "Действуй!", description: "Подавай заявку на мероприятия и бронируй билеты")
+                    header(text: "Путешествуй по России", description: "Получи возможность посетить более чем 100 городов России, принять участие в уникальных событиях и открыть для себя много нового!")
                 }
             }
             .padding(.top, 8)
@@ -129,6 +129,7 @@ struct OnboardingView: View {
                     .background(Design.Gradients.buttonGradient, in: RoundedRectangle(cornerRadius: 12))
             }
         }
+        .buttonStyle(GrowingButton())
         .animation(.easeInOut, value: getIndex())
     }
     

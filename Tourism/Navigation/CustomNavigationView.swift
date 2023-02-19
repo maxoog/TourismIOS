@@ -7,7 +7,7 @@ struct CustomNavigationView: View {
         VStack(alignment: .leading) {
             if navigationController.activeTab == .search {
                 HStack {
-                    Text("Привет, Мария!")
+                    Text("Привет, Максим!")
                         .padding(.leading, 20)
                         .font(.title)
                         .fontWeight(.bold)

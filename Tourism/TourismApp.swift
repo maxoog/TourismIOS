@@ -4,7 +4,7 @@ import SwiftUI
 struct TourismApp: App {
     @ObservedObject var navigationController: NavigationController = NavigationController.shared
     
-    @State private var isFirstLaunch: Bool = (UserDefaults.standard.value(forKey: "first-launch") as? Bool) ?? true
+    @State private var isFirstLaunch: Bool = (UserDefaults.standard.value(forKey: "first-launch4") as? Bool) ?? true
     
     var body: some Scene {
         WindowGroup {
@@ -25,7 +25,7 @@ struct TourismApp: App {
                     GeometryReader { proxy in
                         screenFactory.onboardingScreen(size: proxy.size, dismiss: {
                             isFirstLaunch = false
-                            UserDefaults.standard.set(false, forKey: "first-launch")
+                            UserDefaults.standard.set(false, forKey: "first-launch4")
                         })
                     }
                     .transition(.opacity.animation(.easeInOut(duration: 0.5)))

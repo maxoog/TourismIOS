@@ -11,7 +11,7 @@ struct MyOrdersView: View {
             List {
                 VStack(alignment: .leading) {
                     Picker("", selection: $viewModel.activeSection) {
-                        ForEach(ListType.allCases, id: \.self) { item in
+                        ForEach(MainViewModel.ListType.allCases, id: \.self) { item in
                             Text(item.rawValue)
                         }
                     }

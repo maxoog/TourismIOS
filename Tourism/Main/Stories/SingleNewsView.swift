@@ -1,10 +1,3 @@
-//
-//  SingleNewsView.swift
-//  Tourism
-//
-//  Created by Maksim Zenkov on 18.02.2023.
-//
-
 import SwiftUI
 
 struct SingleNewsView: View {
@@ -13,30 +6,12 @@ struct SingleNewsView: View {
     var body: some View {
         GeometryReader { gr in
             ZStack {
-                ZStack(alignment: .bottom) {
-                    AsyncImage(url: URL(string: news.photo)) { phase in
-                        switch phase {
-                        case .empty:
-                            ProgressView()
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: gr.size.width, height: gr.size.height)
-                        case .failure:
-                            Image(systemName: "photo")
-                        @unknown default:
-                            EmptyView()
-                        }
-                    }
-                    
-                    LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
-                        .frame(height: 300)
-                }
+                Image(news.backgroundPhoto)
+                    .resizable()
+                    .frame(width: gr.size.width, height: gr.size.height)
+                    .ignoresSafeArea()
                 
                 VStack {
-                    Spacer()
-                    
                     Spacer()
                     
                     VStack(alignment: .leading, spacing: 16) {
@@ -58,12 +33,11 @@ struct SingleNewsView: View {
                             .foregroundColor(.black)
                             .frame(maxWidth: .greatestFiniteMagnitude)
                             .frame(height: 56)
-                        //                        .padding(.horizontal, 16)
                             .background(.white)
                             .cornerRadius(16)
                             .padding(16)
                     }
-                    //                .padding(.bottom, 16)
+                    .padding(.bottom, 16)
                     
                 }
                 
