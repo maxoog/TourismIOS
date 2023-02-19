@@ -57,7 +57,7 @@ struct MainView: View {
                 }
             }
             
-            Spacer(minLength: 100)
+            Spacer(minLength: 80)
         }
         .fullScreenCover(item: $viewModel.showedEvent, onDismiss: viewModel.dismissAllCards) { event in
             screenFactory.eventFullScreen(event: event, dismiss: { viewModel.showedEvent = nil })

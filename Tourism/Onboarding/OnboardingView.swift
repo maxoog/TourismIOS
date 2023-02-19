@@ -101,7 +101,7 @@ struct OnboardingView: View {
     
     private func nextButton() -> some View {
         Button {
-            let index = min(getIndex() + 1, intros.count - 1)
+            let index = getIndex() + 1
             
             if index == 3 {
                 viewModel.dismiss()

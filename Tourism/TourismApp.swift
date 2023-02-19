@@ -3,9 +3,10 @@ import SwiftUI
 @main
 struct TourismApp: App {
     @ObservedObject var navigationController: NavigationController = NavigationController.shared
-    private static let key = UUID().description
     
-    @State private var isFirstLaunch: Bool = (UserDefaults.standard.value(forKey: Self.key) as? Bool) ?? false
+    private static let key = "first-launch"
+    
+    @State private var isFirstLaunch: Bool = (UserDefaults.standard.value(forKey: Self.key) as? Bool) ?? true
     
     var body: some Scene {
         WindowGroup {
