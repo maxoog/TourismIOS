@@ -15,7 +15,7 @@ struct NewsCarouselView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 13) {
+        VStack(alignment: .leading, spacing: 0) {
             header
             
             ScrollView([.horizontal], showsIndicators: false) {
@@ -51,12 +51,11 @@ struct NewsCarouselView: View {
                             .cornerRadius(16)
                         }
                         .shadow(color: .black.opacity(0.5), radius: 2)
-//                        .defaultShadow()
                     }
-                    
                 }
-                .padding(.horizontal, 16)
             }
+            .padding(.vertical, 13)
+            .padding(.leading, 16)
         }
     }
 }

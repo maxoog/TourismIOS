@@ -20,8 +20,7 @@ struct MainView: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                .padding(.top, 15)
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 16)
                 
                 FiltersCarouselView(section: viewModel.activeSection, valounteer: $viewModel.volounteerFilter)
                 
@@ -37,7 +36,6 @@ struct MainView: View {
                         }
                         .font(Design.Fonts.bold)
                         .padding(.leading, 20)
-                        .padding(.bottom)
                         
                         EventsListView(events: viewModel.events, onTap: viewModel.eventTap)
                             .padding(.horizontal, 20)
@@ -88,6 +86,7 @@ struct MainView: View {
             UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Design.Colors.darkBlue)], for: .normal)
             UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Design.Colors.darkBlue)], for: .selected)
         }
+        .scrollIndicators(.hidden, axes: [.vertical])
     }
 }
 

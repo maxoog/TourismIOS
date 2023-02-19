@@ -35,7 +35,7 @@ struct FiltersCarouselView: View {
             }
         }
         .padding(.leading, 16)
-        .padding(.vertical, 15)
+        .padding(.vertical, 10)
     }
     
     private func filterView(_ filter: SearchFilter) -> some View {
