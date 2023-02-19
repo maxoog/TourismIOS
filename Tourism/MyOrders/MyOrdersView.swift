@@ -30,11 +30,10 @@ struct MyOrdersView: View {
                             .padding(.horizontal, 16)
                             .background(Design.Colors.back)
                     } else {
-                        LivingsListView(livings: viewModel.livings, shortCards: true,  onTap: viewModel.livingTap)
+                        LivingsListView(livings: viewModel.bookingLivings, shortCards: true,  onTap: viewModel.livingTap)
                             .padding(.horizontal, 16)
                             .background(Design.Colors.back)
                     }
-                    Spacer(minLength: 50)
                 }
                 .listRowSeparator(.hidden, edges: .all)
                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))

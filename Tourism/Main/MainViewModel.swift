@@ -11,7 +11,7 @@ class MainViewModel: ObservableObject {
     @Published var news: [News] = News.testArray
     @Published var activeSection: ListType = .eventSection
     @Published var events = Event.searchArray
-    @Published var livings = Living.testArray
+    @Published var livings = Array(repeating: Living.bookingArray[0], count: 3)
     
     @Published var volounteerFilter: Bool = false {
         didSet {
@@ -47,7 +47,7 @@ class MainViewModel: ObservableObject {
     }
     
     func livingTap(living: Living) {
-        showedLiving = Living.bookingArray[0]
+        showedLiving = living
     }
     
     func dismissAllCards() {

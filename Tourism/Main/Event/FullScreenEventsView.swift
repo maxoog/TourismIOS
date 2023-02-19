@@ -14,7 +14,7 @@ struct FullScreenEventsView: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 Spacer(minLength: 320)
                 
                 VStack(alignment: .leading) {
@@ -30,10 +30,6 @@ struct FullScreenEventsView: View {
                             Spacer()
                         }
                         .frame(maxWidth: .infinity)
-                        
-//                        Text("Посмотреть на карте")
-//                            .font(Design.Fonts.bold11)
-//                            .foregroundColor(Design.Colors.lightGray)
                         
                         VStack(alignment: .leading) {
                             HStack {
@@ -81,16 +77,6 @@ struct FullScreenEventsView: View {
                                 Image("backIcon")
                                     .rotationEffect(.degrees(180))
                             }
-//                            HStack {
-//                                Image("planeIcon")
-//
-//                                VStack {
-//                                    Text("от \(planePrice)₽")
-//                                    Text("Авиасейлс")
-//                                }
-//
-//                                Image("forwardIcon")
-//                            }
                         }
                     }
                     .padding(.vertical)

@@ -13,7 +13,6 @@ struct EventCardView: View {
         VStack(alignment: .leading) {
             ZStack {
                 ZStack(alignment: .bottom) {
-                    
                     AsyncImage(url: URL(string: cardInfo.photos[0])) { phase in
                         switch phase {
                         case .empty:
@@ -40,11 +39,6 @@ struct EventCardView: View {
                         }
                     }
                     
-//                    Image("icpc")
-//                        .resizable()
-//                        .frame(maxWidth: .greatestFiniteMagnitude)
-//                        .frame(height: 200)
-                    
                     LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .top)
                         .frame(height: 50)
                 }
@@ -60,7 +54,6 @@ struct EventCardView: View {
                                 .padding(.horizontal, 20)
                                 .background(Design.Colors.mainGreen)
                                 .cornerRadius(9)
-//                                .background(Design.Gradients.titleGradient, in: RoundedRectangle(cornerRadius: 10))
                         }
                         
                         Spacer()

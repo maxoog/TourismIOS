@@ -19,15 +19,15 @@ struct FullScreenLivingView: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 Spacer(minLength: 320)
                 
                 VStack(alignment: .leading) {
                     Button {
                         withAnimation(.spring()) {
-                            showMap = true
                             region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(living.coordinates[0]) ?? 0, longitude: Double(living.coordinates[1]) ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
                             location = MapMarker(coordinate: CLLocationCoordinate2D(latitude: Double(living.coordinates[0]) ?? 0, longitude: Double(living.coordinates[1]) ?? 0), tint: .red)
+                            showMap = true
                         }
                     } label: {
                         VStack(alignment: .leading) {
@@ -181,6 +181,8 @@ struct FullScreenLivingView: View {
                     .padding(.horizontal)
                     .defaultShadow()
                 }
+                
+                Spacer(minLength: 100)
             }
             
             VStack {
@@ -250,15 +252,17 @@ struct FullScreenLivingView: View {
                             
                             Spacer()
                             
-                            VStack(alignment: .leading) {
-//                                Text(living.timeRange)
-//                                    .font(Design.Fonts.medium12)
-//                                    .foregroundColor(.white)
-//
-//                                Text(living.name)
-//                                    .font(Design.Fonts.bold16)
-//                                    .foregroundColor(.white)
+                            HStack {
+                                Text(living.dormitoryName)
+                                
+                                HStack {
+                                    Text("4.8")
+                                    Image(systemName: "star.fill")
+                                }
+                                .padding(.leading, 40)
                             }
+                            .font(Design.Fonts.bold14)
+                            .foregroundColor(.white)
                         }
                         .zIndex(2)
                         .padding(.top, 60)
@@ -303,7 +307,8 @@ struct FullScreenLivingView: View {
                             showMap = false
                         } label: {
                             Image(systemName: "xmark")
-                                .padding()
+                                .foregroundColor(.black)
+                                .padding(10)
                                 .background(.ultraThinMaterial, in: Circle())
                                 .padding()
                         }
@@ -318,18 +323,18 @@ struct FullScreenLivingView: View {
                 Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: [1]) { _ in
                     location
                 }
-                    .zIndex(1)
+                .zIndex(1)
             }
             .ignoresSafeArea()
         })
         .onAppear {
             print(Double(living.coordinates[0]) ?? 0)
-//            service.getTrainPrice(for: TrainRequest(frm: "Москва", to: living.city, date: "19.02.2023")) { newPrice in
-//                trainPrice = newPrice
-//            }
-//            service.getPlanePrice(for: PlaneRequest(frm: "Москва", to: living.city)) { newPrice in
-//                planePrice = newPrice
-//            }
+            service.getTrainPrice(for: TrainRequest(frm: "Москва", to: living.city, date: "19.02.2023")) { newPrice in
+                trainPrice = newPrice
+            }
+            service.getPlanePrice(for: PlaneRequest(frm: "Москва", to: living.city)) { newPrice in
+                planePrice = newPrice
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ struct ProfileView: View {
     
     @ObservedObject var viewModel: ProfileViewModel
     
-    @State var imageSize = 150.0
+    @State var imageSize = 120.0
     @State var secondaryOpacity = 1.0
     
     @State var isFullTitle: Bool = true
@@ -146,9 +146,8 @@ struct ProfileView: View {
             // MARK: - Profile Info
             VStack {
                 ZStack(alignment: .top) {
-                    ShortProfileHeaderView(profile: testProfile, imageSize: imageSize * 0.4)
+                    ShortProfileHeaderView(profile: testProfile, imageSize: imageSize * 0.5)
                         .zIndex(1)
-//                            .transition(.asymmetric(insertion: .push(from: .top), removal: .move(edge: .top)))
                     if isFullTitle {
                         ProfileHeaderView(profile: testProfile, imageSize: imageSize)
                             .zIndex(2)
